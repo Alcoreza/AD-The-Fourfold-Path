@@ -7,13 +7,16 @@ $dotenv = Dotenv\Dotenv::createImmutable(BASE_PATH);
 $dotenv->load();
 
 $typeConfig = [
+    'env'       => $_ENV['ENV_NAME'] ?? 'development',
+
     // PostgreSQL
-    'pgHost' => $_ENV['PG_HOST'],
-    'pgPort' => $_ENV['PG_PORT'],
-    'pgDb'   => $_ENV['PG_DB'],
-    'pgUser' => $_ENV['PG_USER'],
-    'pgPass' => $_ENV['PG_PASS'],
+    'pgHost'    => $_ENV['PG_HOST'] ?? '',
+    'pgPort'    => $_ENV['PG_PORT'] ?? '',
+    'pgDb'      => $_ENV['PG_DB'] ?? '',
+    'pgUser'    => $_ENV['PG_USER'] ?? '',
+    'pgPass'    => $_ENV['PG_PASS'] ?? '',
+
     // MongoDB
-    'mongoUri' => $_ENV['MONGO_URI'],
-    'mongoDb'  => $_ENV['MONGO_DB'],
+    'mongoUri'  => $_ENV['MONGO_URI'] ?? '',
+    'mongoDb'   => $_ENV['MONGO_DB'] ?? '',
 ];
