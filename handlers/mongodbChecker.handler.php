@@ -11,7 +11,7 @@ if (!$mongoUri || !$mongoDb) {
 
 try {
     $mongo = new MongoDB\Driver\Manager($mongoUri);
-    $command = new MongoDB\Driver\Command(['ping' => 1]);
+    $command = new MongoDB\Driver\Command(["ping" => 1]);
     $mongo->executeCommand($mongoDb, $command);
 
     echo "✅ Connected to MongoDB successfully.<br>";

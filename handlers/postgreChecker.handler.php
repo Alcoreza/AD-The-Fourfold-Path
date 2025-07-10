@@ -3,20 +3,22 @@ require_once UTILS_PATH . 'envSetter.util.php';
 
 $host = $typeConfig['pgHost'];
 $port = $typeConfig['pgPort'];
-$db   = $typeConfig['pgDb'];
-$user = $typeConfig['pgUser'];
-$pass = $typeConfig['pgPass'];
+$username = $typeConfig['pgUser'];
+$password = $typeConfig['pgPass'];
+$dbname = $typeConfig['pgDb'];
 
-if (!$host || !$port || !$db || !$user || !$pass) {
+if (!$host || !$port || !$dbname || !$username || !$password) {
     echo "❌ Missing PostgreSQL environment variables.<br>";
-    exit;
+    exit();
 }
 
-$connStr = "host=$host port=$port dbname=$db user=$user password=$pass";
-$conn = pg_connect($connStr);
+$conn_string = "host=$host port=$port dbname=$dbname user=$username password=$password";
+$dbconn = pg_connect($conn_string);
 
-if (!$conn) {
-    echo "❌ Connection Failed: " . htmlspecialchars(pg_last_error()) . "<br>";
+if (!$dbconn) {
+    echo "❌ Connection Failed: Unable to connect to PostgreSQL.<br>";
+    exit();
 } else {
     echo "✅ PostgreSQL Connection<br>";
+    pg_close($dbconn);
 }
