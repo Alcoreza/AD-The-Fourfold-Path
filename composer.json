@@ -1,10 +1,22 @@
 {
-    "name": "your-username-here/project-name-here",
+    "name": "mania/ad-the-fourfold-path",
     "type": "project",
     "authors": [
         {
-            "name": "your-username-here",
-            "email": "your-email-here@gmail.com"
+            "name": "Garlynd",
+            "email": "weinard21@gmail.com"
+        },
+        {
+            "name": "Alcoreza",
+            "email": "202310642@fit.edu.ph"
+        },
+        {
+            "name": "Clive-04",
+            "email": "202310384@fit.edu.ph"
+        },
+        {
+            "name": "Trebzo",
+            "email": "202310393@fit.edu.ph"
         }
     ],
     "scripts": {
