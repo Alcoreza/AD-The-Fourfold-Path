@@ -9,7 +9,7 @@ require_once HANDLERS_PATH . '/mongodbChecker.handler.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Fourfold Path</title>
-    <link href="/pages/homePage/assets/css/styles.css" rel="stylesheet">
+    <link href="/assets/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
 </head>
@@ -18,7 +18,7 @@ require_once HANDLERS_PATH . '/mongodbChecker.handler.php';
     <nav class="navbar">
         <div class="nav-brand">The Fourfold Path</div>
         <ul class="nav-links">
-            <li><a href="/pages/homePage/index.php">Home</a></li>
+            <li><a href="/index.php">Home</a></li>
             <li><a href="/pages/productPage/index.php">Products</a></li>
             <li><a href="/pages/loginPage/index.php">Login</a></li>
         </ul>
@@ -68,5 +68,14 @@ require_once HANDLERS_PATH . '/mongodbChecker.handler.php';
             </div>
         </div>
     </section>
+
+    <footer class="site-footer">
+        <div class="footer-brand">The Fourfold Path</div>
+            <p class="copyright">
+                © 2025 The Fourfold Path. Crafted with balance and harmony.
+            </p>
+    </footer>
+
+    <script src="assets/js/scripts.js"></script>
 </body>
 </html>
