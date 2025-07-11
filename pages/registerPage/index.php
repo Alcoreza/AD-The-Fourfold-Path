@@ -20,9 +20,9 @@
         </ul>
     </nav>
 
-    <div class="register-container">
+    <main class="register-container">
         <div class="register-box">
-            <h2>Create Account</h2>
+            <h2>Create Bender</h2>
                 <form class="register-form" action="#" method="post">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required/>
@@ -40,7 +40,7 @@
                 </form>
             <p class="login-link">Already have an account? <a href="/pages/loginPage/index.php">Login here</a></p>
         </div>
-    </div>
+    </main>
 
     <footer class="site-footer">
         <div class="footer-brand">The Fourfold Path</div>
