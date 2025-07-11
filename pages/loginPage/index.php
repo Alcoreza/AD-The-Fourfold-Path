@@ -6,7 +6,9 @@
     <title>Login | The Fourfold Path</title>
     <link href="/assets/css/styles.css" rel="stylesheet">
     <link href="/pages/loginPage/assets/css/login.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Caudex&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <nav class="navbar">
@@ -21,7 +23,7 @@
 
     <main class="login-container">
         <div class="login-box fade-in-section">
-            <h2>Welcome Back</h2>
+            <h2>Welcome Back, Bender</h2>
             <form action="/pages/loginPage/authenticate.php" method="POST" class="login-form">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -29,7 +31,7 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
 
-                <button type="submit" class="explore-btn">Login</button>
+                <button type="submit" class="explore-btn">Log In</button>
                 <p class="register-link">Don't have an account? <a href="/pages/registerPage/index.php"></a>Register</p>
             </form>
         </div>
