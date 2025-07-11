@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }, { threshold: 0.1 });
 
-    const section = document.querySelector(".fade-in-section");
-    if (section) {
-        observer.observe(section);
-    }
+    const sections = document.querySelectorAll(".fade-in-section");
+    sections.forEach(section => observer.observe(section));
 });
