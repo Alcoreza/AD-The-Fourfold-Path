@@ -13,7 +13,7 @@
 <!-- [QA] use components for the navbar -->
 
 <body>
-
+    <!-- [QA] adjust the spacing for the navbar -->
     <nav class="navbar">
         <div class="nav-brand">The Fourfold Path</div>
         <ul class="nav-links">
