@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<!-- [QA] adjust the spacing for the navbar -->
+    <!-- [QA] adjust the spacing for the navbar -->
     <nav class="navbar">
         <div class="nav-brand">The Fourfold Path</div>
         <ul class="nav-links">
@@ -25,11 +27,12 @@
         <p class="tagline">Harness the Elements. Master Your Energy.</p>
     </header>
 
-     <main class="fade-in-section">
+    <main class="fade-in-section">
         <section class="intro-section">
-        <h2>Welcome, Bender</h2>
+            <h2>Welcome, Bender</h2>
             <p>
-                Here at The Fourfold Path, we believe the spirit of each element lives within all of us. Our elemental gear is inspired by the traditions of the Four Nations - Fire, Water, Air, and Earth.<br>
+                Here at The Fourfold Path, we believe the spirit of each element lives within all of us. Our elemental
+                gear is inspired by the traditions of the Four Nations - Fire, Water, Air, and Earth.<br>
                 Crafted to help you connect with your inner strength.
             </p>
             <p>
@@ -48,30 +51,31 @@
         <div class="card-grid">
             <div class="card fire fade-in-section">
                 <h3>Fire Nation</h3>
-                    <p class="description">Power, precision, and relentless drive. Harness the heat within.</p>
+                <p class="description">Power, precision, and relentless drive. Harness the heat within.</p>
             </div>
             <div class="card water fade-in-section">
                 <h3>Water Tribe</h3>
-                    <p class="description">Healing, balance, and flow. Master the art of adaptation.</p>
+                <p class="description">Healing, balance, and flow. Master the art of adaptation.</p>
             </div>
             <div class="card air fade-in-section">
                 <h3>Air Nomads</h3>
-                    <p class="description">Freedom, peace, and motion. Glide lightly through the world.</p>
+                <p class="description">Freedom, peace, and motion. Glide lightly through the world.</p>
             </div>
             <div class="card earth fade-in-section">
                 <h3>Earth Kingdom</h3>
-                    <p class="description">Stability, resilience, and power. Stand your ground with strength.</p>
+                <p class="description">Stability, resilience, and power. Stand your ground with strength.</p>
             </div>
         </div>
     </section>
-
+    <!-- [QA] utilize the components for the footer -->
     <footer class="site-footer">
         <div class="footer-brand">The Fourfold Path</div>
-            <p class="copyright">
-                © 2025 The Fourfold Path. Crafted with balance and harmony.
-            </p>
+        <p class="copyright">
+            © 2025 The Fourfold Path. Crafted with balance and harmony.
+        </p>
     </footer>
 
     <script src="assets/js/scripts.js"></script>
 </body>
+
 </html>
