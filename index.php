@@ -20,6 +20,7 @@ require_once HANDLERS_PATH . '/mongodbChecker.handler.php';
         <ul class="nav-links">
             <li><a href="/index.php">Home</a></li>
             <li><a href="/pages/productPage/index.php">Products</a></li>
+            <li><a href="/pages/aboutPage/index.php">About</a></li>
             <li><a href="/pages/loginPage/index.php">Login</a></li>
         </ul>
     </nav>
