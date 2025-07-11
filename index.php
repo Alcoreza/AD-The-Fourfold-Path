@@ -47,4 +47,26 @@ require_once HANDLERS_PATH . '/mongodbChecker.handler.php';
         </section>
     </main>
 
-    
+    <section class="element-cards">
+        <h2>Choose Your Nation</h2>
+        <div class="card-grid">
+            <div class="card fire">
+                <h3>Fire Nation</h3>
+                    <p class="description">Power, precision, and relentless drive. Harness the heat within.</p>
+            </div>
+            <div class="card water">
+                <h3>Water Tribe</h3>
+                    <p class="description">Healing, balance, and flow. Master the art of adaptation.</p>
+            </div>
+            <div class="card air">
+                <h3>Air Nomads</h3>
+                    <p class="description">Freedom, peace, and motion. Glide lightly through the world.</p>
+            </div>
+            <div class="card earth">
+                <h3>Earth Kingdom</h3>
+                    <p class="description">Stability, resilience, and power. Stand your ground with strength.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
