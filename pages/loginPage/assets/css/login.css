@@ -1,0 +1,62 @@
+.login-container {
+    min-height: 100vh;
+    background: url('/assets/img/paperFibers.jpg') no repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.login-box {
+    background-color: rgba(245, 228, 195, 0.85);
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-box h2 {
+    font-family: 'Uncial Antiqua', Georgia, serif;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    color: #3e2c18;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.login-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #3e2c18;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Caudex', serif;
+    transition: box-shadow 0.3s ease;
+}
+
+.login-form input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #8B4513;
+}
+
+.register-link {
+    margin-top: 20px;
+    font-size: 0.95em;
+    color: #3e2c18;
+}
+
+.register-link a {
+    color: #8B4513;
+    text-decoration: underline;
+}
