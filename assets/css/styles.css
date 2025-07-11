@@ -168,6 +168,11 @@ main::before {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
+.card.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .card::before {
     content: '';
     position: absolute;
