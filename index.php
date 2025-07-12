@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
 </head>
+<!-- [QA] add more contrasting elements to capture the eyes of the reader (e.g. more pictures contrasting with dark and light elements). -->
 
 <body>
     <!-- [QA] adjust the spacing for the navbar -->
