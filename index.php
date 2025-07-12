@@ -32,6 +32,7 @@
     <main class="fade-in-section">
         <section class="intro-section">
             <h2>Welcome, Bender</h2>
+            <!-- [QA] put a background for this text (like a scroll) then adjust the font color -->
             <p>
                 Here at The Fourfold Path, we believe the spirit of each element lives within all of us. Our elemental
                 gear is inspired by the traditions of the Four Nations - Fire, Water, Air, and Earth.<br>
