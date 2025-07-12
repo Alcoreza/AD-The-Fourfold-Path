@@ -39,25 +39,38 @@ body {
 }
 
 .hero {
+    position: relative;
     text-align: center;
-    padding: 60px 20px 30px;
+    padding: 170px 20px 170px;
     color: white;
-    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.8);
+    background: url('/assets/img/headerBG.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.9);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.hero * {
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
-    font-size: 3em;
+    font-size: 5em;
     font-family: 'Uncial Antiqua', Georgia, serif;
     text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.8);
-}
-
-.intro-section h2 {
-    font-family: 'Uncial Antiqua', Georgia, serif;
 }
 
 .tagline {
     font-style: italic;
-    font-size: 1.3em;
+    font-size: 2em;
     margin-top: 10px;
 }
 
@@ -68,6 +81,8 @@ main {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    color: #2d1b00;
+    background: transparent;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
@@ -78,7 +93,7 @@ main::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('/assets/img/scroll.jpg') no-repeat center center;
+    background: url('/assets/img/bodyBG.png') no-repeat center center;
     background-size: cover;
     opacity: 0.65;
     z-index: -1;
@@ -102,16 +117,19 @@ main::before {
 
 .intro-section h2 {
     font-size: 2.3em;
-    color: #3e2c18;
+    color: #fcecd6;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0,0,0,1);
+    font-family: 'Uncial Antiqua', Georgia, serif;
 }
 
 .intro-section p {
-    font-size: 1.3em;
+    font-size: 2em;
     line-height: 1.6em;
     margin-bottom: 15px;
-    color: #2d1b00;
+    font-weight: bold;
+    color: #fcecd6;
+    text-shadow: 2px 2px 4px rgba(0,0,0,1);
 }
 
 .explore-btn {
