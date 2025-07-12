@@ -15,11 +15,10 @@
 <!-- [QA] adjust the spacing for the navbar -->
 <!-- [QA] replace the background with a picture. Kindly make the picture darker to have a better contrast -->
 <!-- [QA] rmake the hero section bigger (e.g make the text bigger as well as the background that would be added later on) -->
-    <?php 
+    <?php
         include COMPONENTS_PATH . '/navbar.component.php';
         include COMPONENTS_PATH . '/header.component.php';
     ?>
-
 
     <main class="fade-in-section">
         <section class="intro-section">
