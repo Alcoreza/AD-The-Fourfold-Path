@@ -13,21 +13,10 @@
 
 <body>
     <!-- [QA] adjust the spacing for the navbar -->
-    <nav class="navbar">
-        <div class="nav-brand">The Fourfold Path</div>
-        <ul class="nav-links">
-            <li><a href="/index.php">Home</a></li>
-            <li><a href="/pages/productPage/index.php">Products</a></li>
-            <li><a href="/pages/aboutPage/index.php">About</a></li>
-            <li><a href="/pages/loginPage/index.php">Login</a></li>
-        </ul>
-    </nav>
+    <?php include './components/componentGroup/navbar.component.php'; ?>
     <!-- [QA] replace the background with a picture. Kindly make the picture darker to have a better contrast -->
     <!-- [QA] rmake the hero section bigger (e.g make the text bigger as well as the background that would be added later on) -->
-    <header class="hero">
-        <h1>The Fourfold Path</h1>
-        <p class="tagline">Harness the Elements. Master Your Energy.</p>
-    </header>
+    <?php include './components/componentGroup/header.component.php'; ?>
 
     <main class="fade-in-section">
         <section class="intro-section">
@@ -71,12 +60,7 @@
         </div>
     </section>
     <!-- [QA] utilize the components for the footer -->
-    <footer class="site-footer">
-        <div class="footer-brand">The Fourfold Path</div>
-        <p class="copyright">
-            © 2025 The Fourfold Path. Crafted with balance and harmony.
-        </p>
-    </footer>
+    <?php include './components/componentGroup/footer.component.php'; ?>
 
     <script src="assets/js/scripts.js"></script>
 </body>
