@@ -11,15 +11,9 @@
 
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">The Fourfold Path</div>
-        <ul class="nav-links">
-            <li><a href="/index.php">Home</a></li>
-            <li><a href="/pages/productPage/index.php">Products</a></li>
-            <li><a href="/pages/aboutPage/index.php">About</a></li>
-            <li><a href="/pages/loginPage/index.php" class="active">Login</a></li>
-        </ul>
-    </nav>
+    <?php
+        include COMPONENTS_PATH . '/navbar.component.php';
+    ?>
 
     <main class="login-container">
         <div class="login-box fade-in-section">
@@ -37,12 +31,7 @@
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-brand">The Fourfold Path</div>
-        <p class="copyright">
-            © 2025 The Fourfold Path. Crafted with balance and harmony.
-        </p>
-    </footer>
+    <?php include COMPONENTS_PATH . '/footer.component.php'; ?>
 
     <script src="/assets/js/scripts.js"></script>
 </body>
