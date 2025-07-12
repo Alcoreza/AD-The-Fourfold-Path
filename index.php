@@ -22,6 +22,7 @@
         </ul>
     </nav>
     <!-- [QA] replace the background with a picture. Kindly make the picture darker to have a better contrast -->
+    <!-- [QA] rmake the hero section bigger (e.g make the text bigger as well as the background that would be added later on) -->
     <header class="hero">
         <h1>The Fourfold Path</h1>
         <p class="tagline">Harness the Elements. Master Your Energy.</p>
