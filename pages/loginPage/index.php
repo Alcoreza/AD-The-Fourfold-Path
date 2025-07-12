@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
 
 </head>
+
 <body>
     <?php
-        include COMPONENTS_PATH . '/navbar.component.php';
-    ?>
+    include COMPONENTS_PATH . '/navbar.component.php';
+    ?> <!-- [QA] the bootstrap is not defined -->
 
     <main class="login-container">
         <div class="login-box fade-in-section">
@@ -35,4 +37,5 @@
 
     <script src="/assets/js/scripts.js"></script>
 </body>
+
 </html>
