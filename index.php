@@ -13,10 +13,10 @@
 
 <body>
     <!-- [QA] adjust the spacing for the navbar -->
-    <?php include './components/componentGroup/navbar.component.php'; ?>
+    <?php include COMPONENTS_PATH . '/navbar.component.php'; ?>
     <!-- [QA] replace the background with a picture. Kindly make the picture darker to have a better contrast -->
     <!-- [QA] rmake the hero section bigger (e.g make the text bigger as well as the background that would be added later on) -->
-    <?php include './components/componentGroup/header.component.php'; ?>
+    <?php include COMPONENTS_PATH . '/header.component.php'; ?>
 
     <main class="fade-in-section">
         <section class="intro-section">
@@ -60,7 +60,7 @@
         </div>
     </section>
     <!-- [QA] utilize the components for the footer -->
-    <?php include './components/componentGroup/footer.component.php'; ?>
+    <?php include COMPONENTS_PATH . '/footer.component.php'; ?>
 
     <script src="assets/js/scripts.js"></script>
 </body>
