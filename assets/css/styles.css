@@ -120,7 +120,7 @@ main::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("/assets/img/bodyBG.png") no-repeat center center;
+  background: url("/assets/img/scroll.jpg") no-repeat center center;
   background-size: cover;
   opacity: 0.65;
   z-index: -1;
@@ -138,16 +138,8 @@ main::before {
 }
 
 .intro-section {
-  padding: 40px 30px;
+  padding: 30px 30px;
   text-align: center;
-}
-
-.intro-section h2 {
-  font-size: 2.3em;
-  color: #fcecd6;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-  font-family: "Uncial Antiqua", Georgia, serif;
 }
 
 .intro-section p {
@@ -155,13 +147,36 @@ main::before {
   line-height: 1.6em;
   margin-bottom: 15px;
   font-weight: bold;
-  color: #fcecd6;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  color: #764c12;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+.ribbon-container {
+  position: relative;
+  width: 100vw; /* full viewport width */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: url('/assets/img/paperFibers.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.ribbon-text {
+  font-size: 3em;
+  color: #56370a;
+  font-family: 'Uncial Antiqua', Georgia, serif;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+  margin: 0;
+}
+
 
 .explore-btn {
   display: inline-block;
-  background-color: #7e3d12;
+  background-color: #764c12;
   color: white;
   padding: 12px 24px;
   text-decoration: none;
@@ -171,7 +186,7 @@ main::before {
 }
 
 .explore-btn:hover {
-  background-color: #d07b41;
+  background-color: #ab701e;
 }
 
 .element-cards {

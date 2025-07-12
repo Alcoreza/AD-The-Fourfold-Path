@@ -22,7 +22,9 @@
 
     <main class="fade-in-section">
         <section class="intro-section">
-        <h2>Welcome, Bender</h2>
+            <div class="ribbon-container">
+                <h2 class="ribbon-text">Welcome, Bender</h2>
+            </div>
             <!-- [QA] put a background for this text (like a scroll) then adjust the font color -->
             <p>
                 Here at The Fourfold Path, we believe the spirit of each element lives within all of us. Our elemental
@@ -41,7 +43,7 @@
     </main>
 
     <section class="element-cards">
-        <h2>Choose Your Nation</h2>
+        <h2>Choose Your Faction</h2>
         <div class="card-grid">
             <div class="card fire fade-in-section">
                 <h3>Fire Nation</h3>
