@@ -21,7 +21,7 @@
             <li><a href="/pages/loginPage/index.php">Login</a></li>
         </ul>
     </nav>
-
+    <!-- [QA] replace the background with a picture. Kindly make the picture darker to have a better contrast -->
     <header class="hero">
         <h1>The Fourfold Path</h1>
         <p class="tagline">Harness the Elements. Master Your Energy.</p>
