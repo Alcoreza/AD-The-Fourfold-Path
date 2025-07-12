@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Register – The Fourfold Path</title>
+    <title>Register | The Fourfold Path</title>
     <link href="/assets/css/styles.css" rel="stylesheet"/>
     <link href="/pages/registerPage/assets/css/register.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet"/>
