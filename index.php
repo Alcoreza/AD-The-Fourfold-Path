@@ -1,3 +1,5 @@
+<?php require_once './bootstrap.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,29 +11,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
 </head>
-<!-- [QA] add more contrasting elements to capture the eyes of the reader (e.g. more pictures contrasting with dark and light elements). -->
-
 <body>
-    <!-- [QA] adjust the spacing for the navbar -->
-    <nav class="navbar">
-        <div class="nav-brand">The Fourfold Path</div>
-        <ul class="nav-links">
-            <li><a href="/index.php">Home</a></li>
-            <li><a href="/pages/productPage/index.php">Products</a></li>
-            <li><a href="/pages/aboutPage/index.php">About</a></li>
-            <li><a href="/pages/loginPage/index.php">Login</a></li>
-        </ul>
-    </nav>
-    <!-- [QA] replace the background with a picture. Kindly make the picture darker to have a better contrast -->
-    <!-- [QA] rmake the hero section bigger (e.g make the text bigger as well as the background that would be added later on) -->
-    <header class="hero">
-        <h1>The Fourfold Path</h1>
-        <p class="tagline">Harness the Elements. Master Your Energy.</p>
-    </header>
+<!-- [QA] adjust the spacing for the navbar -->
+<!-- [QA] replace the background with a picture. Kindly make the picture darker to have a better contrast -->
+<!-- [QA] rmake the hero section bigger (e.g make the text bigger as well as the background that would be added later on) -->
+    <?php
+        include COMPONENTS_PATH . '/navbar.component.php';
+        include COMPONENTS_PATH . '/header.component.php';
+    ?>
 
     <main class="fade-in-section">
         <section class="intro-section">
-            <h2>Welcome, Bender</h2>
+        <h2>Welcome, Bender</h2>
             <!-- [QA] put a background for this text (like a scroll) then adjust the font color -->
             <p>
                 Here at The Fourfold Path, we believe the spirit of each element lives within all of us. Our elemental
@@ -70,13 +61,8 @@
             </div>
         </div>
     </section>
-    <!-- [QA] utilize the components for the footer -->
-    <footer class="site-footer">
-        <div class="footer-brand">The Fourfold Path</div>
-        <p class="copyright">
-            © 2025 The Fourfold Path. Crafted with balance and harmony.
-        </p>
-    </footer>
+
+    <?php include COMPONENTS_PATH . '/footer.component.php'; ?>
 
     <script src="assets/js/scripts.js"></script>
 </body>
