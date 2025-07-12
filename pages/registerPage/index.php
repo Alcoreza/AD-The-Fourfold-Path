@@ -1,3 +1,5 @@
+<?php require_once './bootstrap.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet"/>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">The Fourfold Path</div>
-        <ul class="nav-links">
-            <li><a href="/index.php">Home</a></li>
-            <li><a href="/pages/productPage/index.php">Products</a></li>
-            <li><a href="/pages/aboutPage/index.php">About</a></li>
-            <li><a href="/pages/loginPage/index.php">Login</a></li>
-        </ul>
-    </nav>
+    <?php
+        include COMPONENTS_PATH . '/navbar.component.php';
+    ?>
 
     <main class="register-container">
         <div class="register-box">
@@ -42,9 +38,6 @@
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-brand">The Fourfold Path</div>
-        <p class="copyright">© 2025 The Fourfold Path. Crafted with balance and harmony.</p>
-    </footer>
+    <?php include COMPONENTS_PATH . '/footer.component.php'; ?>
 </body>
 </html>
