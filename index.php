@@ -1,3 +1,5 @@
+<?php require_once './bootstrap.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,18 +11,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
 </head>
-<!-- [QA] add more contrasting elements to capture the eyes of the reader (e.g. more pictures contrasting with dark and light elements). -->
-
 <body>
-    <!-- [QA] adjust the spacing for the navbar -->
-    <?php include COMPONENTS_PATH . '/navbar.component.php'; ?>
-    <!-- [QA] replace the background with a picture. Kindly make the picture darker to have a better contrast -->
-    <!-- [QA] rmake the hero section bigger (e.g make the text bigger as well as the background that would be added later on) -->
-    <?php include COMPONENTS_PATH . '/header.component.php'; ?>
+<!-- [QA] adjust the spacing for the navbar -->
+<!-- [QA] replace the background with a picture. Kindly make the picture darker to have a better contrast -->
+<!-- [QA] rmake the hero section bigger (e.g make the text bigger as well as the background that would be added later on) -->
+    <?php 
+        include COMPONENTS_PATH . '/navbar.component.php';
+        include COMPONENTS_PATH . '/header.component.php';
+    ?>
+
 
     <main class="fade-in-section">
         <section class="intro-section">
-            <h2>Welcome, Bender</h2>
+        <h2>Welcome, Bender</h2>
             <!-- [QA] put a background for this text (like a scroll) then adjust the font color -->
             <p>
                 Here at The Fourfold Path, we believe the spirit of each element lives within all of us. Our elemental
@@ -59,7 +62,7 @@
             </div>
         </div>
     </section>
-    <!-- [QA] utilize the components for the footer -->
+
     <?php include COMPONENTS_PATH . '/footer.component.php'; ?>
 
     <script src="assets/js/scripts.js"></script>
