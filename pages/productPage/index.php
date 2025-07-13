@@ -12,14 +12,10 @@
     <link href="/pages/productPage/assets/css/product.css" rel="stylesheet">
 </head>
 <body>
-    <?php include COMPONENTS_PATH . '/navbar.component.php'; ?>
-
-    <header class="banner">
-        <img src="/assets/img/banner.jpg" alt="Element Products Banner">
-        <div class="banner-text">
-            <h1>All Products</h1>
-        </div>
-    </header>
+    <?php 
+        include COMPONENTS_PATH . '/navbar.component.php';
+        include COMPONENTS_PATH . '/productHeader.component.php';
+    ?>
 
     <div class="container">
         <div class="category-labels">
