@@ -15,3 +15,7 @@ function filterProducts(category) {
         }
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    filterProducts('all');
+});
