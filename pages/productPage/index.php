@@ -37,7 +37,7 @@
                     ["Blazing Kata Scrolls", "Advanced firebending sequences for agility, footwork, and controlled bursts.", "blazingScrolls.png", 999.00],
                     ["Flame Arc Bands", "Wrist bands weighted for training rapid strikes and whip motions.", "flameBands.png", 1249.00],
                     ["Dancing Dragon Silks", "Traditional practice robes for dual form routines.", "dragonSilk.png", 2499.00],
-                    ["Inferno Training Mat", "High-grip mat with flame-flow pattern to guide stance work.", "infernoMat.png", 49.99],
+                    ["Inferno Training Mat", "High-grip mat with flame-flow pattern to guide stance work.", "infernoMat.png", 2499.00],
                 ]
             ],
             'water' => [
