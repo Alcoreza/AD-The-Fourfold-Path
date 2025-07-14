@@ -1,4 +1,8 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 define('BASE_PATH', realpath(__DIR__));
 define('UTILS_PATH', BASE_PATH . '/utils/');
 define('VENDOR_PATH', BASE_PATH . '/vendor/');
