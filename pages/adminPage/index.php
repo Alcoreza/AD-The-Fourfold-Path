@@ -68,6 +68,8 @@
     <div class="row" id="productList"></div>
 </div>
 
+<?php include COMPONENTS_PATH . "/footer.component.php" ?>
+
 <script src="/pages/adminPage/assets/js/admin.js"></script>
 </body>
 </html>
