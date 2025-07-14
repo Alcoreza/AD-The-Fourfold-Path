@@ -8,14 +8,19 @@ function registerUser(string $username, string $email, string $password, string 
 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-    global $typeConfig;
+    global $pgConfig;
+
+    if (!isset($pgConfig) || !is_array($pgConfig)) {
+        return ['error' => 'PostgreSQL configuration is missing.'];
+    }
+
     $connStr = sprintf(
         "host=%s port=%s dbname=%s user=%s password=%s",
-        $typeConfig['pgHost'],
-        $typeConfig['pgPort'],
-        $typeConfig['pgDb'],
-        $typeConfig['pgUser'],
-        $typeConfig['pgPass']
+        $pgConfig['host'],
+        $pgConfig['port'],
+        $pgConfig['db'],
+        $pgConfig['user'],
+        $pgConfig['pass']
     );
 
     $conn = pg_connect($connStr);
@@ -43,11 +48,11 @@ function registerUser(string $username, string $email, string $password, string 
         [$username, $passwordHash, $email]
     );
 
+    pg_close($conn);
+
     if ($insertResult && pg_num_rows($insertResult) === 1) {
-        pg_close($conn);
         return ['success' => 'Registration successful! Redirecting to login...'];
     } else {
-        pg_close($conn);
         return ['error' => 'Registration failed. Please try again.'];
     }
 }
