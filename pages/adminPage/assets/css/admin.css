@@ -1,0 +1,22 @@
+body {
+    font-family: 'Caudex', serif;
+    background-color: #f2f0ea;
+}
+
+h2 {
+    font-family: 'Uncial Antiqua', serif;
+    color: #3e2c18;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #3e2c18;
+}
+
+.card-text {
+    font-size: 0.95rem;
+}
