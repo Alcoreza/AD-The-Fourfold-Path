@@ -1,21 +1,9 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: 'Uncial Antiqua', cursive;
-    background: url('bg-avatar.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fdf6e3;
-    padding: 0;
-}
-
-.container {
+.cart-container {
     max-width: 960px;
-    margin: 0 auto;
+    margin: 100px auto;
     padding: 40px 20px;
-    background-color: rgba(0, 0, 0, 0.6);
+    font-family: 'Uncial Antiqua', cursive;
+    background-color: rgba(223, 186, 166, 0.6);
     border-radius: 16px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
