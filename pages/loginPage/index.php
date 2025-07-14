@@ -1,4 +1,6 @@
-<?php require_once dirname(__DIR__, 2) . '/bootstrap.php'; ?>
+<?php
+require_once dirname(__DIR__, 2) . '/bootstrap.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,17 +13,26 @@
     <link href="/pages/loginPage/assets/css/login.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
-    <?php
-    include COMPONENTS_PATH . '/navbar.component.php';
-    ?> <!-- [QA] the bootstrap is not defined -->
+    <?php include COMPONENTS_PATH . '/navbar.component.php'; ?>
 
     <main class="login-container">
         <div class="login-box fade-in-section">
             <h2>Welcome Back, Bender</h2>
+
+            <!-- Show success or error message if any -->
+            <?php if (isset($_SESSION['login_error'])): ?>
+                <div class="error-message"><?= htmlspecialchars($_SESSION['login_error']) ?></div>
+                <?php unset($_SESSION['login_error']); ?>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['login_success'])): ?>
+                <div class="success-message"><?= htmlspecialchars($_SESSION['login_success']) ?></div>
+                <?php unset($_SESSION['login_success']); ?>
+            <?php endif; ?>
+
             <form action="/pages/loginPage/authenticate.php" method="POST" class="login-form">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -36,7 +47,6 @@
     </main>
 
     <?php include COMPONENTS_PATH . '/footer.component.php'; ?>
-
     <script src="/assets/js/scripts.js"></script>
 </body>
 
