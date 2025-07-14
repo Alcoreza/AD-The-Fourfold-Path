@@ -102,5 +102,6 @@
 
     <?php include COMPONENTS_PATH . '/footer.component.php'; ?>
     <script src="/pages/productPage/assets/js/product.js"></script>
-</body>
+    </div>
+    </body>
 </html>
