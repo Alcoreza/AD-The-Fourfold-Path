@@ -67,7 +67,7 @@ try {
             ':stock_quantity'  => $item['stock_quantity'],
             ':image_url'       => $item['image_url'],
             ':description'     => $item['description'],
-            ':isDELETED'       => $item['isDELETED'] ?? false // fallback if field is missing
+            ':isDELETED' => isset($item['isDELETED']) && $item['isDELETED'] === true,
         ]);
     }
 } catch (PDOException $e) {
