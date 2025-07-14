@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require_once 'bootstrap.php';
 require VENDOR_PATH . 'autoload.php';
+require_once UTILS_PATH . 'envSetter.util.php';
 
 $users = require_once DUMMIES_PATH . 'user.staticData.php';
 $items = require_once DUMMIES_PATH . 'items.staticData.php';
