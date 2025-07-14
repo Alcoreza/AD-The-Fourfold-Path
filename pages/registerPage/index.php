@@ -10,55 +10,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     $confirm = $_POST['confirm'] ?? '';
 
-    // Confirm password matches
-    if ($password !== $confirm) {
-        $registerError = 'Passwords do not match.';
-    } else {
-        // Call the registration handler directly
-        require_once UTILS_PATH . 'envSetter.util.php';
+    require_once UTILS_PATH . 'registerUser.util.php';
 
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+    $result = registerUser($username, $email, $password, $confirm);
 
-        $connStr = sprintf(
-            "host=%s port=%s dbname=%s user=%s password=%s",
-            $typeConfig['pgHost'],
-            $typeConfig['pgPort'],
-            $typeConfig['pgDb'],
-            $typeConfig['pgUser'],
-            $typeConfig['pgPass']
-        );
-        $conn = pg_connect($connStr);
-
-        if (!$conn) {
-            $registerError = 'Database connection failed.';
-        } else {
-            // Check if username or email already exists
-            $existsResult = pg_query_params(
-                $conn,
-                "SELECT id FROM users WHERE username = $1 OR email = $2",
-                [$username, $email]
-            );
-
-            if (pg_num_rows($existsResult) > 0) {
-                $registerError = 'Username or email already exists.';
-            } else {
-                // Insert new user
-                $insertResult = pg_query_params(
-                    $conn,
-                    "INSERT INTO users (username, password, email) VALUES ($1, $2, $3) RETURNING id",
-                    [$username, $passwordHash, $email]
-                );
-
-                if ($insertResult && pg_num_rows($insertResult) === 1) {
-                    $registerSuccess = 'Registration successful! Redirecting to login...';
-                    // Redirect after 2 seconds
-                    header("refresh:2;url=/pages/loginPage/index.php");
-                } else {
-                    $registerError = 'Registration failed. Please try again.';
-                }
-            }
-            pg_close($conn);
-        }
+    if (isset($result['error'])) {
+        $registerError = $result['error'];
+    } elseif (isset($result['success'])) {
+        $registerSuccess = $result['success'];
+        header("refresh:2;url=/pages/loginPage/index.php");
     }
 }
 ?>
