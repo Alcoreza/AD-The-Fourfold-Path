@@ -5,12 +5,12 @@ $registerError = '';
 $registerSuccess = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once UTILS_PATH . 'registerUser.util.php';
+
     $username = trim($_POST['username'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
     $confirm = $_POST['confirm'] ?? '';
-
-    require_once UTILS_PATH . 'registerUser.util.php';
 
     $result = registerUser($username, $email, $password, $confirm);
 
@@ -40,28 +40,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main class="register-container">
         <div class="register-box">
             <h2>Create Bender</h2>
-                <form class="register-form" action="" method="post" autocomplete="off">
-                    <?php if ($registerError): ?>
-                        <div class="error-message"><?= htmlspecialchars($registerError) ?></div>
-                    <?php endif; ?>
-                    <?php if ($registerSuccess): ?>
-                        <div class="success-message"><?= htmlspecialchars($registerSuccess) ?></div>
-                    <?php endif; ?>
+            <form class="register-form" action="" method="post" autocomplete="off">
+                <?php if ($registerError): ?>
+                    <div class="error-message"><?= htmlspecialchars($registerError) ?></div>
+                <?php endif; ?>
+                <?php if ($registerSuccess): ?>
+                    <div class="success-message"><?= htmlspecialchars($registerSuccess) ?></div>
+                <?php endif; ?>
 
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required/>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required/>
 
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required/>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required/>
 
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required/>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required/>
 
-                    <label for="confirm">Confirm Password</label>
-                    <input type="password" id="confirm" name="confirm" required/>
+                <label for="confirm">Confirm Password</label>
+                <input type="password" id="confirm" name="confirm" required/>
 
-                    <button type="submit" class="register-btn">Register</button>
-                </form>
+                <button type="submit" class="register-btn">Register</button>
+            </form>
             <p class="login-link">Already have an account? <a href="/pages/loginPage/index.php">Login here</a></p>
         </div>
     </main>
