@@ -11,13 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<!-- [QA] adjust the spacing for the navbar -->
-<!-- [QA] replace the background with a picture. Kindly make the picture darker to have a better contrast -->
-<!-- [QA] rmake the hero section bigger (e.g make the text bigger as well as the background that would be added later on) -->
+    <!-- [QA] adjust the spacing for the navbar -->
+    <!-- [QA] replace the background with a picture. Kindly make the picture darker to have a better contrast -->
+    <!-- [QA] rmake the hero section bigger (e.g make the text bigger as well as the background that would be added later on) -->
     <?php
-        include COMPONENTS_PATH . '/navbar.component.php';
-        include COMPONENTS_PATH . '/header.component.php';
+    include COMPONENTS_PATH . '/navbar.component.php';
+    include COMPONENTS_PATH . '/header.component.php';
     ?>
 
     <main class="fade-in-section">
@@ -25,7 +26,7 @@
             <div class="ribbon-container">
                 <h2 class="ribbon-text">Welcome, Bender</h2>
             </div>
-            <!-- [QA] put a background for this text (like a scroll) then adjust the font color -->
+            <!-- [QA] try reducing the opacity of the shadow -->
             <p>
                 Here at The Fourfold Path, we believe the spirit of each element lives within all of us. Our elemental
                 gear is inspired by the traditions of the Four Nations - Fire, Water, Air, and Earth.<br>
