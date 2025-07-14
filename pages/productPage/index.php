@@ -32,45 +32,45 @@
             'fire' => [
                 'title' => 'Fire Nation',
                 'items' => [
-                    ["Agni Drill Gloves", "Specialized fire-resistant gloves for breathing synchronization and strike training.", "agniGloves.png", 39.99],
-                    ["Breath of Sozin Mask", "A martial arts breathing mask infused with warming herbs.", "sozinMask.png", 29.99],
-                    ["Blazing Kata Scrolls", "Advanced firebending sequences for agility, footwork, and controlled bursts.", "blazingScrolls.png", 19.99],
-                    ["Flame Arc Bands", "Wrist bands weighted for training rapid strikes and whip motions.", "flameBands.png", 24.99],
-                    ["Dancing Dragon Silks", "Traditional practice robes for dual form routines.", "dragonSilk.png", 59.99],
+                    ["Agni Drill Gloves", "Specialized fire-resistant gloves for breathing synchronization and strike training.", "agniGloves.png", 1999.00],
+                    ["Breath of Sozin Mask", "A martial arts breathing mask infused with warming herbs.", "sozinMask.png", 1499.00],
+                    ["Blazing Kata Scrolls", "Advanced firebending sequences for agility, footwork, and controlled bursts.", "blazingScrolls.png", 999.00],
+                    ["Flame Arc Bands", "Wrist bands weighted for training rapid strikes and whip motions.", "flameBands.png", 1249.00],
+                    ["Dancing Dragon Silks", "Traditional practice robes for dual form routines.", "dragonSilk.png", 2499.00],
                     ["Inferno Training Mat", "High-grip mat with flame-flow pattern to guide stance work.", "infernoMat.png", 49.99],
                 ]
             ],
             'water' => [
                 'title' => 'Water Tribe',
                 'items' => [
-                    ["Flowform Sash", "A cloth band worn around the waist for balance and motion awareness.", "flowformSash.png", 32.99],
-                    ["Moon Pull Stones", "Two small orbs used to train fluid wrist and arm rotations.", "moonStones.png", 15.99],
-                    ["Tidal Stance Pads", "Soft training pads placed under feet for shifting and sliding exercises.", "stancePads.png", 21.50],
-                    ["Spirit Current Wraps", "Arm wraps infused with sea salt and lavender for calming flow practice.", "currentWraps.png", 18.00],
-                    ["Healing Circle Mat", "A reflective training mat used in group bending drills or healing rituals.", "healingMat.png", 45.00],
-                    ["Glacial Edge Fan", "A lightweight practice fan used to simulate ice slicing and wave forms.", "glacialFan.png", 26.75],
+                    ["Flowform Sash", "A cloth band worn around the waist for balance and motion awareness.", "flowformSash.png", 1499.00],
+                    ["Moon Pull Stones", "Two small orbs used to train fluid wrist and arm rotations.", "moonStones.png", 749.00],
+                    ["Tidal Stance Pads", "Soft training pads placed under feet for shifting and sliding exercises.", "stancePads.png", 1199.00],
+                    ["Spirit Current Wraps", "Arm wraps infused with sea salt and lavender for calming flow practice.", "currentWraps.png", 799.00],
+                    ["Healing Circle Mat", "A reflective training mat used in group bending drills or healing rituals.", "healingMat.png", 2199.00],
+                    ["Glacial Edge Fan", "A lightweight practice fan used to simulate ice slicing and wave forms.", "glacialFan.png", 1299.00],
                 ]
             ],
             'air' => [
                 'title' => 'Air Nomads',
                 'items' => [
-                    ["Spiral Motion Bands", "Elastic training bands used to encourage wide circular movements.", "spiralBands.png", 28.99],
-                    ["Whisper Cloak", "Extremely lightweight hooded robe that responds to movement and airflow.", "whisperCloak.png", 60.00],
-                    ["Cyclone Steps Mat", "A circular footwork mat used to train directional change and evasion.", "cycloneMat.png", 38.50],
-                    ["Monk Gyatso’s Breath Bell", "A bell that rings only with steady exhalation through a breathing tube.", "monkBell.png", 22.49],
-                    ["Glider Staff Trainer", "A shortened, padded version of the iconic glider staff.", "gliderStaff.png", 35.00],
-                    ["Void Meditation Orb", "A lightweight sphere used during balance meditation and Ba Gua circles.", "voidOrb.png", 19.95],
+                    ["Spiral Motion Bands", "Elastic training bands used to encourage wide circular movements.", "spiralBands.png", 1599.00],
+                    ["Whisper Cloak", "Extremely lightweight hooded robe that responds to movement and airflow.", "whisperCloak.png", 3000.00],
+                    ["Cyclone Steps Mat", "A circular footwork mat used to train directional change and evasion.", "cycloneMat.png", 1899.00],
+                    ["Monk Gyatso’s Breath Bell", "A bell that rings only with steady exhalation through a breathing tube.", "monkBell.png", 1199.00],
+                    ["Glider Staff Trainer", "A shortened, padded version of the iconic glider staff.", "gliderStaff.png", 1699.00],
+                    ["Void Meditation Orb", "A lightweight sphere used during balance meditation and Ba Gua circles.", "voidOrb.png", 999.00],
                 ]
             ],
             'earth' => [
                 'title' => 'Earth Kingdom',
                 'items' => [
-                    ["Tremor Grounding Sandals", "Weighted shoes designed to enhance stance practice and earth connection.", "tremorSandals.png", 42.50],
-                    ["Stone Core Belt", "A training belt that provides feedback on hip alignment during stances.", "stoneBelt.png", 33.25],
-                    ["Seismic Focus Rods", "Handheld rods for training punching accuracy and resistance.", "seismicRods.png", 25.00],
-                    ["Pillar Stance Board", "A rigid board with stone patterns to guide foot spacing.", "pillarStance.png", 30.00],
-                    ["Ironroot Arm Weights", "Forearm bands with internal sand-fill for slow, controlled bending drills.", "ironroot.png", 27.99],
-                    ["Badgermole Rhythm Drum", "A pulse drum used during seismic sensing and earth-rhythm meditation.", "badgermole.png", 34.50],
+                    ["Tremor Grounding Sandals", "Weighted shoes designed to enhance stance practice and earth connection.", "tremorSandals.png", 2099.00],
+                    ["Stone Core Belt", "A training belt that provides feedback on hip alignment during stances.", "stoneBelt.png", 1599.00],
+                    ["Seismic Focus Rods", "Handheld rods for training punching accuracy and resistance.", "seismicRods.png", 1199.00],
+                    ["Pillar Stance Board", "A rigid board with stone patterns to guide foot spacing.", "pillarStance.png", 1499.00],
+                    ["Ironroot Arm Weights", "Forearm bands with internal sand-fill for slow, controlled bending drills.", "ironroot.png", 1399.00],
+                    ["Badgermole Rhythm Drum", "A pulse drum used during seismic sensing and earth-rhythm meditation.", "badgermole.png", 1299.00],
                 ]
             ]
         ];
