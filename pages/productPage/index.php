@@ -27,97 +27,63 @@
             <img src="/assets/img/allButton.png" alt="All Products" class="faction-icon" onclick="filterProducts('all')">
         </div>
 
-        <!-- Fire Nation Products -->
-        <div class="product-section fire">
-            <h2>Fire Nation</h2>
-            <div class="product-grid">
-                <?php $fireProducts = [
-                    ["Agni Drill Gloves", "Specialized fire-resistant gloves for breathing synchronization and strike training.", "agniGloves.png"],
-                    ["Breath of Sozin Mask", "A martial arts breathing mask infused with warming herbs.", "sozinMask.png"],
-                    ["Blazing Kata Scrolls", "Advanced firebending sequences for agility, footwork, and controlled bursts.", "blazingScrolls.png"],
-                    ["Flame Arc Bands", "Wrist bands weighted for training rapid strikes and whip motions.", "flameBands.png"],
-                    ["Dancing Dragon Silks", "Traditional practice robes for dual form routines.", "dragonSilk.png"],
-                    ["Inferno Training Mat", "High-grip mat with flame-flow pattern to guide stance work.", "infernoMat.png"]
-                ];
-                foreach ($fireProducts as [$title, $desc, $img]) {
-                    echo "<div class='product-card'>
-                            <img src='/assets/img/products/fire/$img' alt='$title'>
-                            <div class='product-title'>$title</div>
-                            <div class='product-desc'>$desc</div>
-                        </div>";
-                }
-                ?>
-            </div>
-        </div>
+        <?php 
+        $products = [
+            'fire' => [
+                ["Agni Drill Gloves", "Specialized fire-resistant gloves for breathing synchronization and strike training.", "agniGloves.png", "39.99"],
+                ["Breath of Sozin Mask", "A martial arts breathing mask infused with warming herbs.", "sozinMask.png", "29.99"],
+                ["Blazing Kata Scrolls", "Advanced firebending sequences for agility, footwork, and controlled bursts.", "blazingScrolls.png", "24.99"],
+                ["Flame Arc Bands", "Wrist bands weighted for training rapid strikes and whip motions.", "flameBands.png", "19.99"],
+                ["Dancing Dragon Silks", "Traditional practice robes for dual form routines.", "dragonSilk.png", "49.99"],
+                ["Inferno Training Mat", "High-grip mat with flame-flow pattern to guide stance work.", "infernoMat.png", "34.99"]
+            ],
+            'water' => [
+                ["Flowform Sash", "A cloth band worn around the waist for balance and motion awareness.", "flowformSash.png", "22.50"],
+                ["Moon Pull Stones", "Two small orbs used to train fluid wrist and arm rotations.", "moonStones.png", "18.75"],
+                ["Tidal Stance Pads", "Soft training pads placed under feet for shifting and sliding exercises.", "stancePads.png", "20.00"],
+                ["Spirit Current Wraps", "Arm wraps infused with sea salt and lavender for calming flow practice.", "currentWraps.png", "15.00"],
+                ["Healing Circle Mat", "A reflective training mat used in group bending drills or healing rituals.", "healingMat.png", "30.00"],
+                ["Glacial Edge Fan", "A lightweight practice fan used to simulate ice slicing and wave forms.", "glacialFan.png", "28.50"]
+            ],
+            'air' => [
+                ["Spiral Motion Bands", "Elastic training bands used to encourage wide circular movements.", "spiralBands.png", "16.00"],
+                ["Whisper Cloak", "Extremely lightweight hooded robe that responds to movement and airflow.", "whisperCloak.png", "45.00"],
+                ["Cyclone Steps Mat", "A circular footwork mat used to train directional change and evasion.", "cycloneMat.png", "25.00"],
+                ["Monk Gyatso’s Breath Bell", "A bell that rings only with steady exhalation through a breathing tube.", "monkBell.png", "20.00"],
+                ["Glider Staff Trainer", "A shortened, padded version of the iconic glider staff.", "gliderStaff.png", "35.00"],
+                ["Void Meditation Orb", "A lightweight sphere used during balance meditation and Ba Gua circles.", "voidOrb.png", "27.00"]
+            ],
+            'earth' => [
+                ["Tremor Grounding Sandals", "Weighted shoes designed to enhance stance practice and earth connection.", "tremorSandals.png", "30.00"],
+                ["Stone Core Belt", "A training belt that provides feedback on hip alignment during stances.", "stoneBelt.png", "18.00"],
+                ["Seismic Focus Rods", "Handheld rods for training punching accuracy and resistance.", "seismicRods.png", "20.00"],
+                ["Pillar Stance Board", "A rigid board with stone patterns to guide foot spacing.", "pillarStance.png", "22.00"],
+                ["Ironroot Arm Weights", "Forearm bands with internal sand-fill for slow, controlled bending drills.", "ironroot.png", "25.00"],
+                ["Badgermole Rhythm Drum", "A pulse drum used during seismic sensing and earth-rhythm meditation.", "badgermole.png", "32.00"]
+            ]
+        ];
 
-        <!-- Water Tribe Products -->
-        <div class="product-section water">
-            <h2>Water Tribe</h2>
-            <div class="product-grid">
-                <?php $waterProducts = [
-                    ["Flowform Sash", "A cloth band worn around the waist for balance and motion awareness.", "flowformSash.png"],
-                    ["Moon Pull Stones", "Two small orbs used to train fluid wrist and arm rotations.", "moonStones.png"],
-                    ["Tidal Stance Pads", "Soft training pads placed under feet for shifting and sliding exercises.", "stancePads.png"],
-                    ["Spirit Current Wraps", "Arm wraps infused with sea salt and lavender for calming flow practice.", "currentWraps.png"],
-                    ["Healing Circle Mat", "A reflective training mat used in group bending drills or healing rituals.", "healingMat.png"],
-                    ["Glacial Edge Fan", "A lightweight practice fan used to simulate ice slicing and wave forms.", "glacialFan.png"]
-                ];
-                foreach ($waterProducts as [$title, $desc, $img]) {
-                    echo "<div class='product-card'>
-                            <img src='/assets/img/products/water/$img' alt='$title'>
-                            <div class='product-title'>$title</div>
-                            <div class='product-desc'>$desc</div>
-                        </div>";
-                }
-                ?>
-            </div>
-        </div>
+        foreach ($products as $element => $items) {
+            echo "<div class='product-section $element'>
+                    <h2>" . ucfirst($element) . "</h2>
+                    <div class='product-grid'>";
 
-        <!-- Air Nomads Products -->
-        <div class="product-section air">
-            <h2>Air Nomads</h2>
-            <div class="product-grid">
-                <?php $airProducts = [
-                    ["Spiral Motion Bands", "Elastic training bands used to encourage wide circular movements.", "spiralBands.png"],
-                    ["Whisper Cloak", "Extremely lightweight hooded robe that responds to movement and airflow.", "whisperCloak.png"],
-                    ["Cyclone Steps Mat", "A circular footwork mat used to train directional change and evasion.", "cycloneMat.png"],
-                    ["Monk Gyatso’s Breath Bell", "A bell that rings only with steady exhalation through a breathing tube.", "monkBell.png"],
-                    ["Glider Staff Trainer", "A shortened, padded version of the iconic glider staff.", "gliderStaff.png"],
-                    ["Void Meditation Orb", "A lightweight sphere used during balance meditation and Ba Gua circles.", "voidOrb.png"]
-                ];
-                foreach ($airProducts as [$title, $desc, $img]) {
-                    echo "<div class='product-card'>
-                            <img src='/assets/img/products/air/$img' alt='$title'>
-                            <div class='product-title'>$title</div>
-                            <div class='product-desc'>$desc</div>
-                        </div>";
-                }
-                ?>
-            </div>
-        </div>
+            foreach ($items as [$title, $desc, $img, $price]) {
+                echo "<div class='product-card'
+                            data-title='$title'
+                            data-price='$price'
+                            data-image='/assets/img/products/$element/$img'>
+                        <img src='/assets/img/products/$element/$img' alt='$title'>
+                        <div class='product-title'>$title</div>
+                        <div class='product-desc'>$desc</div>
+                        <div class='product-price'>₱$price</div>
+                        <button class='add-to-cart-btn'>Add to Cart</button>
+                    </div>";
+            }
 
-        <!-- Earth Kingdom Products -->
-        <div class="product-section earth">
-            <h2>Earth Kingdom</h2>
-            <div class="product-grid">
-                <?php $earthProducts = [
-                    ["Tremor Grounding Sandals", "Weighted shoes designed to enhance stance practice and earth connection.", "tremorSandals.png"],
-                    ["Stone Core Belt", "A training belt that provides feedback on hip alignment during stances.", "stoneBelt.png"],
-                    ["Seismic Focus Rods", "Handheld rods for training punching accuracy and resistance.", "seismicRods.png"],
-                    ["Pillar Stance Board", "A rigid board with stone patterns to guide foot spacing.", "pillarStance.png"],
-                    ["Ironroot Arm Weights", "Forearm bands with internal sand-fill for slow, controlled bending drills.", "ironroot.png"],
-                    ["Badgermole Rhythm Drum", "A pulse drum used during seismic sensing and earth-rhythm meditation.", "badgermole.png"]
-                ];
-                foreach ($earthProducts as [$title, $desc, $img]) {
-                    echo "<div class='product-card'>
-                            <img src='/assets/img/products/earth/$img' alt='$title'>
-                            <div class='product-title'>$title</div>
-                            <div class='product-desc'>$desc</div>
-                        </div>";
-                }
-                ?>
-            </div>
-        </div>
+            echo "</div></div>";
+        }
+        ?>
     </div>
 
     <?php include COMPONENTS_PATH . '/footer.component.php'; ?>
