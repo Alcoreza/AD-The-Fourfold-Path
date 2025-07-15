@@ -36,7 +36,7 @@ function loginUser(string $usernameOrEmail, string $password): array
 
     if (!password_verify($password, $user['password'])) {
         pg_close($conn);
-        return ['error' => 'Invalid username/email or password.'];
+        return ['error' => 'Invalid credentials.'];
     }
 
     if (session_status() === PHP_SESSION_NONE) {

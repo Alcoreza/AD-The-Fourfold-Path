@@ -21,8 +21,14 @@ require_once dirname(__DIR__, 2) . '/bootstrap.php'; // [QA] add a named custom 
     <main class="login-container">
         <div class="login-box fade-in-section">
             <h2>Welcome Back, Bender</h2>
-            <!-- Show success or error message if any -->
-            <!-- [QA] put the invalid message below the input fields not above -->
+
+            <form action="/handlers/loginUser.handler.php" method="POST" class="login-form">
+                <label for="username">Username or Email</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                
             <?php if (isset($_SESSION['login_error'])): ?>
                 <div class="error-message"><?= htmlspecialchars($_SESSION['login_error']) ?></div>
                 <?php unset($_SESSION['login_error']); ?>
@@ -32,13 +38,6 @@ require_once dirname(__DIR__, 2) . '/bootstrap.php'; // [QA] add a named custom 
                 <div class="success-message"><?= htmlspecialchars($_SESSION['login_success']) ?></div>
                 <?php unset($_SESSION['login_success']); ?>
             <?php endif; ?>
-
-            <form action="/pages/loginPage/authenticate.php" method="POST" class="login-form">
-                <label for="username">Username or Email</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
 
                 <button type="submit" class="explore-btn">Log In</button>
                 <p class="register-link">Don't have an account? <a href="/pages/registerPage/index.php">Register</a></p>
