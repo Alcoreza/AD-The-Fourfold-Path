@@ -8,6 +8,7 @@
 
         <?php if (isset($_SESSION['user'])): ?>
             <li><a href="/pages/logout.php">Logout</a></li>
+            <!-- [QA] the text should be changed to login once the user logged out -->
         <?php else: ?>
             <li><a href="/pages/loginPage/index.php">Login</a></li>
         <?php endif; ?>
