@@ -19,8 +19,6 @@
     <?php if (isset($pageName)) : ?>
         <?php if ($pageName === 'about'): ?>
             <link rel="stylesheet" href="/pages/aboutPage/assets/css/about.css">
-        <?php elseif ($pageName === 'admin'): ?>
-            <link rel="stylesheet" href="/pages/adminPage/assets/css/admin.css">
         <?php elseif ($pageName === 'cart'): ?>
             <link rel="stylesheet" href="/pages/cartPage/assets/css/cart.css">
         <?php elseif ($pageName === 'login'): ?>
@@ -40,14 +38,12 @@ if (!isset($headerType) || $headerType !== 'none') {
 }
 
 // Navbar handling
-if (isset($navbarType) && $navbarType === 'admin') {
-    require_once COMPONENTS_PATH . '/adminNavbar.component.php';
-} elseif (!isset($navbarType) || $navbarType !== 'none') {
+if (!isset($navbarType) || $navbarType !== 'none') {
     require_once COMPONENTS_PATH . '/navbar.component.php';
 }
 ?>
 
-<!-- Let content include its own layout classes like main.register-container -->
+<!-- Let content include its own layout classes like .login-container or .register-container -->
 <?= isset($content) ? $content : '<p>Oops! No content loaded.</p>' ?>
 
 <?php require_once COMPONENTS_PATH . '/footer.component.php'; ?>
@@ -58,14 +54,10 @@ if (isset($navbarType) && $navbarType === 'admin') {
         <script src="/pages/aboutPage/assets/js/about.js" defer></script>
     <?php elseif ($pageName === 'home'): ?>
         <script src="/assets/js/scripts.js" defer></script>
-    <?php elseif ($pageName === 'admin'): ?>
-        <script src="/admin/assets/js/admin.js" defer></script>
     <?php elseif ($pageName === 'cart'): ?>
         <script src="/pages/cartPage/assets/js/cart.js" defer></script>
-    <?php elseif ($pageName === 'login'): ?>
+    <?php elseif ($pageName === 'login' || $pageName === 'register'): ?>
         <script src="/assets/js/scripts.js" defer></script>
-    <?php elseif ($pageName === 'register'): ?>
-        <script src="/assets/js/scripts.js" defer></script> <!-- Replace with register.js if you have one -->
     <?php endif; ?>
 <?php endif; ?>
 
