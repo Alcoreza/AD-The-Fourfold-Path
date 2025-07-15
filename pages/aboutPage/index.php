@@ -47,5 +47,5 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-include '../layout/layout.template.php';
+include LAYOUT_PATH . '/main.layout.php';
 ?>
