@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__DIR__, 2) . '/bootstrap.php';
+require_once dirname(__DIR__, 2) . '/bootstrap.php'; // [QA] add a named custom path 
 ?>
 
 <!DOCTYPE html>
@@ -21,8 +21,8 @@ require_once dirname(__DIR__, 2) . '/bootstrap.php';
     <main class="login-container">
         <div class="login-box fade-in-section">
             <h2>Welcome Back, Bender</h2>
-
             <!-- Show success or error message if any -->
+            <!-- [QA] put the invalid message below the input fields not above -->
             <?php if (isset($_SESSION['login_error'])): ?>
                 <div class="error-message"><?= htmlspecialchars($_SESSION['login_error']) ?></div>
                 <?php unset($_SESSION['login_error']); ?>
@@ -34,7 +34,7 @@ require_once dirname(__DIR__, 2) . '/bootstrap.php';
             <?php endif; ?>
 
             <form action="/pages/loginPage/authenticate.php" method="POST" class="login-form">
-                <label for="username">Username</label>
+                <label for="username">Username or Email</label>
                 <input type="text" id="username" name="username" required>
 
                 <label for="password">Password</label>

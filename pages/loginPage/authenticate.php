@@ -3,10 +3,10 @@ require_once dirname(__DIR__, 2) . '/bootstrap.php';
 require_once UTILS_PATH . 'loginUser.util.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = trim($_POST['username'] ?? '');
+    $usernameOrEmail = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    $result = loginUser($username, $password);
+    $result = loginUser($usernameOrEmail, $password);
 
     if (isset($result['success'])) {
         header("Location: /index.php");

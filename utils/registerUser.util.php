@@ -1,13 +1,14 @@
 <?php
 require_once UTILS_PATH . 'envSetter.util.php';
 
-function registerUser(string $username, string $email, string $password, string $confirm): array {
+function registerUser(string $username, string $email, string $password, string $confirm): array
+{
     if ($password !== $confirm) {
         return ['error' => 'Passwords do not match.'];
     }
 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-
+    // [QA] the user could register even there is no ".com or .ph, etc" present
     global $pgConfig;
 
     if (!isset($pgConfig) || !is_array($pgConfig)) {
