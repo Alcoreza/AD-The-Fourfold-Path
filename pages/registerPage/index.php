@@ -1,26 +1,10 @@
 <?php
-require_once dirname(__DIR__, 2) . '/bootstrap.php'; // [QA] add a named custom path 
+require_once dirname(__DIR__, 2) . '/bootstrap.php'; // [QA] add a named custom path
 
-$registerError = '';
-$registerSuccess = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once UTILS_PATH . 'registerUser.util.php';
-
-    $username = trim($_POST['username'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $password = $_POST['password'] ?? '';
-    $confirm = $_POST['confirm'] ?? '';
-
-    $result = registerUser($username, $email, $password, $confirm);
-
-    if (isset($result['error'])) {
-        $registerError = $result['error'];
-    } elseif (isset($result['success'])) {
-        $registerSuccess = $result['success'];
-        header("refresh:2;url=/pages/loginPage/index.php");
-    }
-}
+// Retrieve and clear session messages
+$registerError = $_SESSION['register_error'] ?? '';
+$registerSuccess = $_SESSION['register_success'] ?? '';
+unset($_SESSION['register_error'], $_SESSION['register_success']);
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register | The Fourfold Path</title>
+
+    <?php if ($registerSuccess): ?>
+        <meta http-equiv="refresh" content="2;url=/pages/loginPage/index.php">
+    <?php endif; ?>
+
     <link href="/assets/css/styles.css" rel="stylesheet" />
     <link href="/pages/registerPage/assets/css/register.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet" />
@@ -42,13 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main class="register-container">
         <div class="register-box">
             <h2>Create Bender</h2>
-            <form class="register-form" action="" method="post" autocomplete="off">
-                <?php if ($registerError): ?>
-                    <div class="error-message"><?= htmlspecialchars($registerError) ?></div>
-                <?php endif; ?>
-                <?php if ($registerSuccess): ?>
-                    <div class="success-message"><?= htmlspecialchars($registerSuccess) ?></div>
-                <?php endif; ?>
+            <form class="register-form" action="/handlers/userRegister.handler.php" method="post" autocomplete="off">
 
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required />
@@ -60,7 +43,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="password" id="password" name="password" required />
 
                 <label for="confirm">Confirm Password</label>
-                <input type="password" id="confirm" name="confirm" required />
+                <input type="password" id="confirm" name="confirm_password" required />
+
+                <?php if ($registerError): ?>
+                    <div class="error-message"><?= htmlspecialchars($registerError) ?></div>
+                <?php endif; ?>
+                <?php if ($registerSuccess): ?>
+                    <div class="success-message"><?= htmlspecialchars($registerSuccess) ?></div>
+                <?php endif; ?>
 
                 <button type="submit" class="register-btn">Register</button>
             </form>

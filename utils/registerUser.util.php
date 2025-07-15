@@ -1,16 +1,15 @@
 <?php
 require_once UTILS_PATH . 'envSetter.util.php';
 
-function registerUser(string $username, string $email, string $password, string $confirm): array
+function registerUser(string $username, string $email, string $password): array
 {
-    if ($password !== $confirm) {
-        return ['error' => 'Passwords do not match.'];
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || !preg_match('/\.[a-z]{2,}$/i', $email)) {
+        return ['error' => 'Invalid email format.'];
     }
 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-    // [QA] the user could register even there is no ".com or .ph, etc" present
-    global $pgConfig;
 
+    global $pgConfig;
     if (!isset($pgConfig) || !is_array($pgConfig)) {
         return ['error' => 'PostgreSQL configuration is missing.'];
     }
@@ -25,12 +24,11 @@ function registerUser(string $username, string $email, string $password, string 
     );
 
     $conn = pg_connect($connStr);
-
     if (!$conn) {
         return ['error' => 'Database connection failed.'];
     }
 
-    // Check if user already exists
+    // Check if username or email already exists
     $existsResult = pg_query_params(
         $conn,
         "SELECT id FROM users WHERE username = $1 OR email = $2",
