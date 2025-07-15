@@ -13,7 +13,7 @@
 </div>
 <!-- TODO: Make a short description -->
 <div align="center">
-  Short Description. (Optional)
+  The Fourfold Path is an Avatar-inspired online store where users choose an element and shop themed gear, scrolls, wellness items, and digital content tied to fire, water, air, or earth.
 </div>
 
 <br />
