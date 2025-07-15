@@ -31,7 +31,7 @@ unset($_SESSION['register_error'], $_SESSION['register_success']);
     <main class="register-container">
         <div class="register-box">
             <h2>Create Bender</h2>
-            <form class="register-form" action="/handlers/userRegister.handler.php" method="post" autocomplete="off">
+            <form class="register-form" action="/handlers/registerUser.handler.php" method="post" autocomplete="off">
 
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required />
