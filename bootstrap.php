@@ -13,4 +13,5 @@ define('ASSETS_PATH', BASE_PATH . '/assets/');
 define('DATABASE_PATH', BASE_PATH . '/database');
 define('DUMMIES_PATH', BASE_PATH . '/staticDatas/');
 define('LAYOUT_PATH', BASE_PATH . '/layouts/');
+define('BOOTSTRAP_PATH', BASE_PATH . '/bootstrap.php');
 chdir(BASE_PATH);
