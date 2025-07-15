@@ -35,8 +35,8 @@ $stmtUsers = $pdo->prepare("
 ");
 
 $stmtItems = $pdo->prepare("
-    INSERT INTO items (name, price, stock, stock_quantity, image_url, description, isDELETED)
-    VALUES (:name, :price, :stock, :stock_quantity, :image_url, :description, :isDELETED)
+    INSERT INTO items (name, price, stock, stock_quantity, image_url, description)
+    VALUES (:name, :price, :stock, :stock_quantity, :image_url, :description)
 ");
 
 $allSeeded = true;
@@ -61,12 +61,12 @@ echo "🔁 Seeding Items\n";
 try {
     foreach ($items as $item) {
         $stmtItems->execute([
-            ':name'            => $item['name'],
-            ':price'           => $item['price'],
-            ':stock'           => $item['stock'],
-            ':stock_quantity'  => $item['stock_quantity'],
-            ':image_url'       => $item['image_url'],
-            ':description'     => $item['description'],
+            ':name'           => $item['name'],
+            ':price'          => $item['price'],
+            ':stock'          => $item['stock'],
+            ':stock_quantity' => $item['stock_quantity'],
+            ':image_url'      => $item['image_url'],
+            ':description'    => $item['description'],
         ]);
     }
 } catch (PDOException $e) {
