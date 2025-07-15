@@ -1,4 +1,4 @@
-<?php require_once './bootstrap.php'; ?>
+<?php require_once './bootstrap.php'; ?> <!-- [QA] add a named custom path -->
 
 <!DOCTYPE html>
 <html lang="en">
