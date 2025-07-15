@@ -14,6 +14,11 @@ unset($_SESSION['register_error'], $_SESSION['register_success']);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register | The Fourfold Path</title>
+
+    <?php if ($registerSuccess): ?>
+        <meta http-equiv="refresh" content="2;url=/pages/loginPage/index.php">
+    <?php endif; ?>
+
     <link href="/assets/css/styles.css" rel="stylesheet" />
     <link href="/pages/registerPage/assets/css/register.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet" />

@@ -25,7 +25,7 @@ function handleUserRegister(): void
 
     if (isset($result['success'])) {
         $_SESSION['register_success'] = $result['success'];
-        header("Location: /pages/loginPage/index.php");
+        header("Location: /pages/registerPage/index.php");
     } else {
         $_SESSION['register_error'] = $result['error'];
         header("Location: /pages/registerPage/index.php");
