@@ -1,6 +1,6 @@
 <?php
-$pageName = 'about';         // used for script and CSS
-$navbarType = 'default';     // or 'admin' if needed
+$pageName = 'about';
+$navbarType = 'default';
 $headerType = 'default';
 
 ob_start();
@@ -17,7 +17,15 @@ ob_start();
     <h2>Meet Our Team</h2>
 
     <div class="team-member slide-in">
-        <img src="/assets/img/frontend.jpg" alt="Front-End Dev">
+        <img src="/assets/img/profile/elmer.jpg" alt="QA Tester">
+        <div class="member-info">
+            <h3>Elmer Daniel Alcoreza – Quality Assurance</h3>
+            <p>Tested all features for bugs, UI inconsistencies, and edge cases. Helped ensure a seamless experience across different devices and browsers.</p>
+        </div>
+    </div>
+
+    <div class="team-member slide-in">
+        <img src="/assets/img/profile/clive.JPG" alt="Front-End Dev">
         <div class="member-info">
             <h3>Clive Owen Benito – Front-End Developer</h3>
             <p>Designed and built the UI using PHP, HTML, CSS, and JavaScript. Handled animations, responsiveness, and user interactions across all pages.</p>
@@ -25,7 +33,7 @@ ob_start();
     </div>
 
     <div class="team-member slide-in">
-        <img src="/assets/img/backend.jpg" alt="Back-End Dev">
+        <img src="/assets/img/profile/weinard.jpg" alt="Back-End Dev">
         <div class="member-info">
             <h3>Weinard Manianglung – Back-End Developer</h3>
             <p>Developed authentication, routing, and server logic using PHP. Integrated sessions and handled data flow between components and the database.</p>
@@ -33,18 +41,10 @@ ob_start();
     </div>
 
     <div class="team-member slide-in">
-        <img src="/assets/img/database.jpg" alt="Database Admin">
+        <img src="/assets/img/profile/ozbert.jpg" alt="Database Admin">
         <div class="member-info">
             <h3>Ozbert Ace Maxeme Sales – Database Administrator</h3>
-            <p>Designed and maintained the database schema in MySQL, including tables for users, products, orders, and inventory. Ensured data integrity and security.</p>
-        </div>
-    </div>
-
-    <div class="team-member slide-in">
-        <img src="/assets/img/qa.jpg" alt="QA Tester">
-        <div class="member-info">
-            <h3>Elmer Daniel Alcoreza – Quality Assurance</h3>
-            <p>Tested all features for bugs, UI inconsistencies, and edge cases. Helped ensure a seamless experience across different devices and browsers.</p>
+            <p>Designed and maintained PostgreSQL and MongoDB schemas for users, products, orders, and inventory, ensuring data integrity and security.</p>
         </div>
     </div>
 </section>
