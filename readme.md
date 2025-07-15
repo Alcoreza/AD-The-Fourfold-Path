@@ -148,7 +148,8 @@ AD-ProjectName
 
 <!-- TODO: Add References -->
 
-| Title        | Purpose                                                                       | Link          |
-| ------------ | ----------------------------------------------------------------------------- | ------------- |
-| Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
-| Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
+| Title   | Purpose                                                              | Link                    |
+| ------- | -------------------------------------------------------------------- | ----------------------- |
+| ChatGPT | Utilized for the problems and errors encountered during the process. | https://chatgpt.com/    |
+| Google  | Used to get the background pictures for the webpages                 | https://www.google.com/ |
+| Canva   | Utilized for the picture of the products.                            | https://www.canva.com/  |
