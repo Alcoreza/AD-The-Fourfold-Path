@@ -7,7 +7,8 @@
         <li><a href="/pages/aboutPage/index.php">About</a></li>
 
         <?php if (isset($_SESSION['user'])): ?>
-            <li><a href="/pages/logoutPage/index.php">Logout</a></li>
+            <li class="nav-welcome">Welcome, <?= htmlspecialchars($_SESSION['user']['username']) ?>!</li>
+            <li><a href="/handlers/logoutUser.handler.php">Logout</a></li>
         <?php else: ?>
             <li><a href="/pages/loginPage/index.php">Login</a></li>
         <?php endif; ?>
