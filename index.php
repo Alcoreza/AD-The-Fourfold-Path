@@ -33,22 +33,24 @@ ob_start();
 <section class="element-cards">
     <h2>Choose Your Faction</h2>
     <div class="card-grid">
-        <div class="card fire fade-in-section">
+        <a href="/pages/productPage/productPage.php?nation=fire" class="card fire fade-in-section">
             <h3>Fire Nation</h3>
             <p class="description">Power, precision, and relentless drive. Harness the heat within.</p>
-        </div>
-        <div class="card water fade-in-section">
+        </a>
+        <a href="/pages/productPage/productPage.php?nation=water" class="card water fade-in-section">
             <h3>Water Tribe</h3>
             <p class="description">Healing, balance, and flow. Master the art of adaptation.</p>
-        </div>
-        <div class="card air fade-in-section">
+        </a>
+
+        <a href="/pages/productPage/productPage.php?nation=air" class="card air fade-in-section">
             <h3>Air Nomads</h3>
             <p class="description">Freedom, peace, and motion. Glide lightly through the world.</p>
-        </div>
-        <div class="card earth fade-in-section">
+        </a>
+
+        <a href="/pages/productPage/productPage.php?nation=earth" class="card earth fade-in-section">
             <h3>Earth Kingdom</h3>
             <p class="description">Stability, resilience, and power. Stand your ground with strength.</p>
-        </div>
+        </a>
     </div>
 </section>
 
