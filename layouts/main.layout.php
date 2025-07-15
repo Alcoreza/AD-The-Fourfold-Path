@@ -13,8 +13,6 @@
     <?php if (isset($pageName)) : ?>
         <?php if ($pageName === 'about'): ?>
             <link rel="stylesheet" href="/pages/aboutPage/assets/css/about.css">
-        <?php elseif ($pageName === 'product'): ?>
-            <link rel="stylesheet" href="/pages/productPage/assets/css/product.css">
         <?php elseif ($pageName === 'admin'): ?>
             <link rel="stylesheet" href="/pages/adminPage/assets/css/admin.css">
         <?php endif; ?>
@@ -23,9 +21,9 @@
 <body class="<?= isset($pageName) ? $pageName . '-page' : '' ?>">
 
 <?php
-if (isset($headerType) && $headerType === 'product') {
-    require_once COMPONENTS_PATH . '/productHeader.component.php';
-} elseif (!isset($headerType) || $headerType !== 'none') {
+if (isset($headerType) && $headerType === 'none') {
+    // No header
+} else {
     require_once COMPONENTS_PATH . '/header.component.php';
 }
 
@@ -47,8 +45,6 @@ if (isset($navbarType) && $navbarType === 'admin') {
         <script src="/pages/aboutPage/assets/js/about.js" defer></script>
     <?php elseif ($pageName === 'home'): ?>
         <script src="/assets/js/scripts.js" defer></script>
-    <?php elseif ($pageName === 'product'): ?>
-        <script src="/pages/products/assets/js/product.js" defer></script>
     <?php elseif ($pageName === 'admin'): ?>
         <script src="/admin/assets/js/admin.js" defer></script>
     <?php endif; ?>
