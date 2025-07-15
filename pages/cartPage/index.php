@@ -1,7 +1,8 @@
-<?php require_once dirname(__DIR__, 2) . '/bootstrap.php'; ?>
+<?php require_once dirname(__DIR__, 2) . '/bootstrap.php'; ?> <!-- [QA] add a named custom path -->
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Cart | Avatar Market</title>
@@ -11,6 +12,7 @@
     <link href="/assets/css/styles.css" rel="stylesheet">
     <link href="/pages/cartPage/assets/css/cart.css" rel="stylesheet">
 </head>
+
 <body>
     <?php include COMPONENTS_PATH . '/navbar.component.php'; ?>
 
@@ -32,4 +34,5 @@
     <?php include COMPONENTS_PATH . '/footer.component.php'; ?>
     <script src="/pages/cartPage/assets/js/cart.js"></script>
 </body>
+
 </html>

@@ -1,9 +1,9 @@
-<?php require_once './bootstrap.php'; ?>
+<?php require_once './bootstrap.php'; ?> <!-- [QA] add a named custom path -->
 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head> <!-- [QA] research whether the head could be fragmented -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Fourfold Path</title>
