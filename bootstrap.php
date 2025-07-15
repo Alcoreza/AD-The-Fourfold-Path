@@ -12,4 +12,5 @@ define('TEMPLATES_PATH', BASE_PATH . '/components/templates');
 define('ASSETS_PATH', BASE_PATH . '/assets/');
 define('DATABASE_PATH', BASE_PATH . '/database');
 define('DUMMIES_PATH', BASE_PATH . '/staticDatas/');
+define('LAYOUT_PATH', BASE_PATH . '/layouts/');
 chdir(BASE_PATH);
