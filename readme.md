@@ -18,9 +18,6 @@
 
 <br />
 
-<!-- TODO: Change the zyx-0314 into your github username  -->
-<!-- TODO: Change the WD-Template-Project into the same name of your folder -->
-
 ![](https://visit-counter.vercel.app/counter.png?page=Alcoreza/AD-The-Fourfold-Path)
 
 [![wakatime](https://wakatime.com/badge/user/018dd99a-4985-4f98-8216-6ca6fe2ce0f8/project/63501637-9a31-42f0-960d-4d0ab47977f8.svg)](https://wakatime.com/badge/user/018dd99a-4985-4f98-8216-6ca6fe2ce0f8/project/63501637-9a31-42f0-960d-4d0ab47977f8)
@@ -30,7 +27,6 @@
 <br />
 <br />
 
-<!-- TODO: If you want to add more layers for your readme -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -61,7 +57,7 @@
 <!-- TODO: To be changed -->
 <!-- The following are just sample -->
 
-Description of the project in details.
+The Fourfold Path is an immersive, element-themed e-commerce platform inspired by the world of Avatar. It blends traditional martial arts philosophies with modern product design, offering users the chance to explore and purchase gear, scrolls, and wellness item aligned with one of the four elemental nations: Fire, Water, Air, and Earth.
 
 ### Key Components
 
