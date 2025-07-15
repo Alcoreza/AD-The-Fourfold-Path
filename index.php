@@ -1,73 +1,60 @@
-<?php require_once './bootstrap.php'; ?> <!-- [QA] add a named custom path -->
+<?php
+require_once BOOTSTRAP_PATH;
 
-<!DOCTYPE html>
-<html lang="en">
+$pageName = 'home';
+$pageTitle = 'Welcome';
+$navbarType = 'default';
+$headerType = 'default';
 
-<head> <!-- [QA] research whether the head could be fragmented -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Fourfold Path</title>
-    <link href="/assets/css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
-</head>
+ob_start();
+?>
 
-<body>
-    <!-- [QA] adjust the spacing for the navbar -->
-    <!-- [QA] replace the background with a picture. Kindly make the picture darker to have a better contrast -->
-    <!-- [QA] rmake the hero section bigger (e.g make the text bigger as well as the background that would be added later on) -->
-    <?php
-    include COMPONENTS_PATH . '/navbar.component.php';
-    include COMPONENTS_PATH . '/header.component.php';
-    ?>
-
-    <main class="fade-in-section">
-        <section class="intro-section">
-            <div class="ribbon-container">
-                <h2 class="ribbon-text">Welcome, Bender</h2>
-            </div>
-            <!-- [QA] try reducing the opacity of the shadow -->
-            <p>
-                Here at The Fourfold Path, we believe the spirit of each element lives within all of us. Our elemental
-                gear is inspired by the traditions of the Four Nations - Fire, Water, Air, and Earth.<br>
-                Crafted to help you connect with your inner strength.
-            </p>
-            <p>
-                Whether you seek to train your body, relax your soul, or wear your nation’s pride,<br>
-                our collection is the beginning of your journey.
-            </p>
-            <p>
-                Choose wisely. Train with purpose. Master your path.
-            </p>
-            <a href="/pages/products.php" class="explore-btn">Explore Products</a>
-        </section>
-    </main>
-
-    <section class="element-cards">
-        <h2>Choose Your Faction</h2>
-        <div class="card-grid">
-            <div class="card fire fade-in-section">
-                <h3>Fire Nation</h3>
-                <p class="description">Power, precision, and relentless drive. Harness the heat within.</p>
-            </div>
-            <div class="card water fade-in-section">
-                <h3>Water Tribe</h3>
-                <p class="description">Healing, balance, and flow. Master the art of adaptation.</p>
-            </div>
-            <div class="card air fade-in-section">
-                <h3>Air Nomads</h3>
-                <p class="description">Freedom, peace, and motion. Glide lightly through the world.</p>
-            </div>
-            <div class="card earth fade-in-section">
-                <h3>Earth Kingdom</h3>
-                <p class="description">Stability, resilience, and power. Stand your ground with strength.</p>
-            </div>
+<main class="fade-in-section">
+    <section class="intro-section">
+        <div class="ribbon-container">
+            <h2 class="ribbon-text">Welcome, Bender</h2>
         </div>
+        <p>
+            Here at The Fourfold Path, we believe the spirit of each element lives within all of us. Our elemental
+            gear is inspired by the traditions of the Four Nations - Fire, Water, Air, and Earth.<br>
+            Crafted to help you connect with your inner strength.
+        </p>
+        <p>
+            Whether you seek to train your body, relax your soul, or wear your nation’s pride,<br>
+            our collection is the beginning of your journey.
+        </p>
+        <p>
+            Choose wisely. Train with purpose. Master your path.
+        </p>
+        <a href="/pages/productPage/index.php" class="explore-btn">Explore Products</a>
     </section>
+</main>
 
-    <?php include COMPONENTS_PATH . '/footer.component.php'; ?>
+<section class="element-cards">
+    <h2>Choose Your Faction</h2>
+    <div class="card-grid">
+        <a href="/pages/productPage/productPage.php?nation=fire" class="card fire fade-in-section">
+            <h3>Fire Nation</h3>
+            <p class="description">Power, precision, and relentless drive. Harness the heat within.</p>
+        </a>
+        <a href="/pages/productPage/productPage.php?nation=water" class="card water fade-in-section">
+            <h3>Water Tribe</h3>
+            <p class="description">Healing, balance, and flow. Master the art of adaptation.</p>
+        </a>
 
-    <script src="assets/js/scripts.js"></script>
-</body>
+        <a href="/pages/productPage/productPage.php?nation=air" class="card air fade-in-section">
+            <h3>Air Nomads</h3>
+            <p class="description">Freedom, peace, and motion. Glide lightly through the world.</p>
+        </a>
 
-</html>
+        <a href="/pages/productPage/productPage.php?nation=earth" class="card earth fade-in-section">
+            <h3>Earth Kingdom</h3>
+            <p class="description">Stability, resilience, and power. Stand your ground with strength.</p>
+        </a>
+    </div>
+</section>
+
+<?php
+$content = ob_get_clean();
+include LAYOUT_PATH . '/main.layout.php';
+?>
