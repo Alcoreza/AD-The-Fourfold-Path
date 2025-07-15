@@ -1,26 +1,10 @@
 <?php
-require_once dirname(__DIR__, 2) . '/bootstrap.php'; // [QA] add a named custom path 
+require_once dirname(__DIR__, 2) . '/bootstrap.php'; // [QA] add a named custom path
 
-$registerError = '';
-$registerSuccess = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once UTILS_PATH . 'registerUser.util.php';
-
-    $username = trim($_POST['username'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $password = $_POST['password'] ?? '';
-    $confirm = $_POST['confirm'] ?? '';
-
-    $result = registerUser($username, $email, $password, $confirm);
-
-    if (isset($result['error'])) {
-        $registerError = $result['error'];
-    } elseif (isset($result['success'])) {
-        $registerSuccess = $result['success'];
-        header("refresh:2;url=/pages/loginPage/index.php");
-    }
-}
+// Retrieve and clear session messages
+$registerError = $_SESSION['register_error'] ?? '';
+$registerSuccess = $_SESSION['register_success'] ?? '';
+unset($_SESSION['register_error'], $_SESSION['register_success']);
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main class="register-container">
         <div class="register-box">
             <h2>Create Bender</h2>
-            <form class="register-form" action="" method="post" autocomplete="off">
+            <form class="register-form" action="/handlers/userRegister.handler.php" method="post" autocomplete="off">
                 <?php if ($registerError): ?>
                     <div class="error-message"><?= htmlspecialchars($registerError) ?></div>
                 <?php endif; ?>
