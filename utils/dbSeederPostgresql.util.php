@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 require_once 'bootstrap.php';
 require VENDOR_PATH . 'autoload.php';
+require_once UTILS_PATH . 'envSetter.util.php';
 
 $users = require_once DUMMIES_PATH . 'user.staticData.php';
 $items = require_once DUMMIES_PATH . 'items.staticData.php';
@@ -66,7 +67,7 @@ try {
             ':stock_quantity'  => $item['stock_quantity'],
             ':image_url'       => $item['image_url'],
             ':description'     => $item['description'],
-            ':isDELETED'       => $item['isDELETED'] ?? false // fallback if field is missing
+            ':isDELETED' => isset($item['isDELETED']) && $item['isDELETED'] === true,
         ]);
     }
 } catch (PDOException $e) {
