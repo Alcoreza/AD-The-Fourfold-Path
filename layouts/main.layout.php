@@ -6,27 +6,33 @@
 
     <title><?= isset($pageTitle) ? htmlspecialchars($pageTitle) . ' | The Fourfold Path' : 'The Fourfold Path' ?></title>
 
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
     <link rel="stylesheet" href="/assets/css/styles.css">
 
+    <!-- Page-Specific CSS -->
     <?php if (isset($pageName)) : ?>
         <?php if ($pageName === 'about'): ?>
             <link rel="stylesheet" href="/pages/aboutPage/assets/css/about.css">
         <?php elseif ($pageName === 'admin'): ?>
             <link rel="stylesheet" href="/pages/adminPage/assets/css/admin.css">
+        <?php elseif ($pageName === 'cart'): ?>
+            <link rel="stylesheet" href="/pages/cartPage/assets/css/cart.css">
         <?php endif; ?>
     <?php endif; ?>
 </head>
 <body class="<?= isset($pageName) ? $pageName . '-page' : '' ?>">
 
 <?php
-if (isset($headerType) && $headerType === 'none') {
-    // No header
-} else {
+// Header handling
+if (!isset($headerType) || $headerType !== 'none') {
     require_once COMPONENTS_PATH . '/header.component.php';
 }
 
+// Navbar handling
 if (isset($navbarType) && $navbarType === 'admin') {
     require_once COMPONENTS_PATH . '/adminNavbar.component.php';
 } else {
@@ -40,6 +46,7 @@ if (isset($navbarType) && $navbarType === 'admin') {
 
 <?php require_once COMPONENTS_PATH . '/footer.component.php'; ?>
 
+<!-- Page-Specific JS -->
 <?php if (isset($pageName)) : ?>
     <?php if ($pageName === 'about'): ?>
         <script src="/pages/aboutPage/assets/js/about.js" defer></script>
@@ -47,6 +54,8 @@ if (isset($navbarType) && $navbarType === 'admin') {
         <script src="/assets/js/scripts.js" defer></script>
     <?php elseif ($pageName === 'admin'): ?>
         <script src="/admin/assets/js/admin.js" defer></script>
+    <?php elseif ($pageName === 'cart'): ?>
+        <script src="/pages/cartPage/assets/js/cart.js" defer></script>
     <?php endif; ?>
 <?php endif; ?>
 
