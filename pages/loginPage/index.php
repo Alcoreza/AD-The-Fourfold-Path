@@ -23,6 +23,7 @@ require_once dirname(__DIR__, 2) . '/bootstrap.php'; // [QA] add a named custom 
             <h2>Welcome Back, Bender</h2>
 
             <!-- Show success or error message if any -->
+            <!-- [QA] put the invalid message below the input fields not above -->
             <?php if (isset($_SESSION['login_error'])): ?>
                 <div class="error-message"><?= htmlspecialchars($_SESSION['login_error']) ?></div>
                 <?php unset($_SESSION['login_error']); ?>
