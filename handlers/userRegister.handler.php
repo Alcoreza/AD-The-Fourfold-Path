@@ -21,7 +21,7 @@ function handleUserRegister(): void
         exit();
     }
 
-    $result = registerUser($username, $email, $password, $confirmPassword);
+    $result = registerUser($username, $email, $password);
 
     if (isset($result['success'])) {
         $_SESSION['register_success'] = $result['success'];
