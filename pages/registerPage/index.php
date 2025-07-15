@@ -32,12 +32,6 @@ unset($_SESSION['register_error'], $_SESSION['register_success']);
         <div class="register-box">
             <h2>Create Bender</h2>
             <form class="register-form" action="/handlers/userRegister.handler.php" method="post" autocomplete="off">
-                <?php if ($registerError): ?>
-                    <div class="error-message"><?= htmlspecialchars($registerError) ?></div>
-                <?php endif; ?>
-                <?php if ($registerSuccess): ?>
-                    <div class="success-message"><?= htmlspecialchars($registerSuccess) ?></div>
-                <?php endif; ?>
 
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required />
@@ -50,6 +44,13 @@ unset($_SESSION['register_error'], $_SESSION['register_success']);
 
                 <label for="confirm">Confirm Password</label>
                 <input type="password" id="confirm" name="confirm_password" required />
+
+                <?php if ($registerError): ?>
+                    <div class="error-message"><?= htmlspecialchars($registerError) ?></div>
+                <?php endif; ?>
+                <?php if ($registerSuccess): ?>
+                    <div class="success-message"><?= htmlspecialchars($registerSuccess) ?></div>
+                <?php endif; ?>
 
                 <button type="submit" class="register-btn">Register</button>
             </form>
