@@ -47,11 +47,25 @@ function registerUser(string $username, string $email, string $password): array
         [$username, $passwordHash, $email]
     );
 
-    pg_close($conn);
-
-    if ($insertResult && pg_num_rows($insertResult) === 1) {
-        return ['success' => 'Registration successful! Redirecting to login...'];
-    } else {
+    if (!$insertResult || pg_num_rows($insertResult) !== 1) {
+        pg_close($conn);
         return ['error' => 'Registration failed. Please try again.'];
     }
+
+    $userId = pg_fetch_result($insertResult, 0, 'id');
+
+    // Create cart for the new user
+    $cartResult = pg_query_params(
+        $conn,
+        "INSERT INTO carts (user_id) VALUES ($1)",
+        [$userId]
+    );
+
+    pg_close($conn);
+
+    if (!$cartResult) {
+        return ['error' => 'User created but cart initialization failed.'];
+    }
+
+    return ['success' => 'Registration successful! Redirecting to login...'];
 }
