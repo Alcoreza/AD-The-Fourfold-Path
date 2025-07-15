@@ -44,7 +44,7 @@ unset($_SESSION['register_error'], $_SESSION['register_success']);
                 <input type="password" id="password" name="password" required />
 
                 <label for="confirm">Confirm Password</label>
-                <input type="password" id="confirm" name="confirm" required />
+                <input type="password" id="confirm" name="confirm_password" required />
 
                 <button type="submit" class="register-btn">Register</button>
             </form>
