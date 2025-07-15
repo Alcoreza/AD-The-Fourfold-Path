@@ -1,4 +1,8 @@
 <?php
+$pageName = 'about';         // used for script and CSS
+$navbarType = 'default';     // or 'admin' if needed
+$headerType = 'default';
+
 ob_start();
 ?>
 
