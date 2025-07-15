@@ -21,13 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    if (isset($result['success'])) {
+    if (isset($result['success']) && isset($result['user'])) {
+        $_SESSION['user'] = $result['user'];
+        $_SESSION['user_id'] = $result['user']['id'];
         $_SESSION['login_success'] = $result['success'];
-        // Delay 2 seconds before redirecting to homepage
-        header('Refresh: 2; URL=/index.php');
-        include __DIR__ . '/../pages/loginPage/index.php'; // Render login page with success message
+
+        header('Location: /index.php');
         exit;
     }
+
 } else {
     // If someone tries to access directly
     header('Location: /pages/loginPage/index.php');
