@@ -1,6 +1,5 @@
 <?php
 require_once dirname(__DIR__) . '/bootstrap.php';
-
 require_once UTILS_PATH . 'loginUser.util.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -24,7 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($result['success'])) {
         $_SESSION['login_success'] = $result['success'];
-        header('Location: /index.php'); // Redirect to homepage after login
+        // Delay 2 seconds before redirecting to homepage
+        header('Refresh: 2; URL=/index.php');
+        include __DIR__ . '/../pages/loginPage/index.php'; // Render login page with success message
         exit;
     }
 } else {
