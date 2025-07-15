@@ -21,9 +21,12 @@
             <link rel="stylesheet" href="/pages/adminPage/assets/css/admin.css">
         <?php elseif ($pageName === 'cart'): ?>
             <link rel="stylesheet" href="/pages/cartPage/assets/css/cart.css">
+        <?php elseif ($pageName === 'login'): ?>
+            <link rel="stylesheet" href="/pages/loginPage/assets/css/login.css">
         <?php endif; ?>
     <?php endif; ?>
 </head>
+
 <body class="<?= isset($pageName) ? $pageName . '-page' : '' ?>">
 
 <?php
@@ -35,7 +38,7 @@ if (!isset($headerType) || $headerType !== 'none') {
 // Navbar handling
 if (isset($navbarType) && $navbarType === 'admin') {
     require_once COMPONENTS_PATH . '/adminNavbar.component.php';
-} else {
+} elseif (!isset($navbarType) || $navbarType !== 'none') {
     require_once COMPONENTS_PATH . '/navbar.component.php';
 }
 ?>
@@ -56,6 +59,8 @@ if (isset($navbarType) && $navbarType === 'admin') {
         <script src="/admin/assets/js/admin.js" defer></script>
     <?php elseif ($pageName === 'cart'): ?>
         <script src="/pages/cartPage/assets/js/cart.js" defer></script>
+    <?php elseif ($pageName === 'login'): ?>
+        <script src="/assets/js/scripts.js" defer></script>
     <?php endif; ?>
 <?php endif; ?>
 
