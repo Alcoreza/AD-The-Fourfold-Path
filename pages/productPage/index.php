@@ -1,4 +1,4 @@
-<?php require_once dirname(__DIR__, 2) . '/bootstrap.php'; ?>
+<?php require_once dirname(__DIR__, 2) . '/bootstrap.php'; ?> <!-- [QA] add a named custom path -->
 
 <!DOCTYPE html>
 <html lang="en">
