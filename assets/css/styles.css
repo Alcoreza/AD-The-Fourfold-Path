@@ -106,19 +106,7 @@ body {
   margin-top: 10px;
 }
 
-main {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 60px 20px;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  color: #2d1b00;
-  background: transparent;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-main::before {
+.home-page main::before {
   content: "";
   position: absolute;
   top: 0;
@@ -126,6 +114,7 @@ main::before {
   right: 0;
   bottom: 0;
   background: url("/assets/img/scroll.jpg") no-repeat center center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.496);
   background-size: cover;
   opacity: 0.65;
   z-index: -1;
