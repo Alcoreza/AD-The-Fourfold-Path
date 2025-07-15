@@ -6,6 +6,8 @@
 
     <title><?= isset($pageTitle) ? htmlspecialchars($pageTitle) . ' | The Fourfold Path' : 'The Fourfold Path' ?></title>
 
+    <?php if (isset($metaRedirect)) echo $metaRedirect; ?>
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
@@ -23,6 +25,8 @@
             <link rel="stylesheet" href="/pages/cartPage/assets/css/cart.css">
         <?php elseif ($pageName === 'login'): ?>
             <link rel="stylesheet" href="/pages/loginPage/assets/css/login.css">
+        <?php elseif ($pageName === 'register'): ?>
+            <link rel="stylesheet" href="/pages/registerPage/assets/css/register.css">
         <?php endif; ?>
     <?php endif; ?>
 </head>
@@ -43,9 +47,8 @@ if (isset($navbarType) && $navbarType === 'admin') {
 }
 ?>
 
-<main class="container">
-    <?= isset($content) ? $content : '<p>Oops! No content loaded.</p>' ?>
-</main>
+<!-- Let content include its own layout classes like main.register-container -->
+<?= isset($content) ? $content : '<p>Oops! No content loaded.</p>' ?>
 
 <?php require_once COMPONENTS_PATH . '/footer.component.php'; ?>
 
@@ -61,6 +64,8 @@ if (isset($navbarType) && $navbarType === 'admin') {
         <script src="/pages/cartPage/assets/js/cart.js" defer></script>
     <?php elseif ($pageName === 'login'): ?>
         <script src="/assets/js/scripts.js" defer></script>
+    <?php elseif ($pageName === 'register'): ?>
+        <script src="/assets/js/scripts.js" defer></script> <!-- Replace with register.js if you have one -->
     <?php endif; ?>
 <?php endif; ?>
 
