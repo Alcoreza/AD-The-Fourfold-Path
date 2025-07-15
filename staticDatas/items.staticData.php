@@ -6,7 +6,7 @@ return [
         'price' => 1999.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'agniGloves.png',
         'description' => 'Specialized fire-resistant gloves for breathing synchronization and strike training.',
     ],
     [
@@ -14,7 +14,7 @@ return [
         'price' => 1499.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'sozinMask.png',
         'description' => 'A martial arts breathing mask infused with warming herbs.',
     ],
     [
@@ -22,7 +22,7 @@ return [
         'price' => 999.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'blazingScrolls.png',
         'description' => 'Advanced firebending sequences for agility, footwork, and controlled bursts.',
     ],
     [
@@ -30,7 +30,7 @@ return [
         'price' => 1249.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'flameBands.png',
         'description' => 'Wrist bands weighted for training rapid strikes and whip motions.',
     ],
     [
@@ -38,7 +38,7 @@ return [
         'price' => 2499.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'dragonSilk.png',
         'description' => 'Traditional practice robes for dual form routines.',
     ],
     [
@@ -46,7 +46,7 @@ return [
         'price' => 2499.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'infernoMat.png',
         'description' => 'High-grip mat with flame-flow pattern to guide stance work.',
     ],
 
@@ -56,7 +56,7 @@ return [
         'price' => 1499.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'flowformSash.png',
         'description' => 'A cloth band worn around the waist for balance and motion awareness.',
     ],
     [
@@ -64,7 +64,7 @@ return [
         'price' => 749.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'moonStones.png',
         'description' => 'Two small orbs used to train fluid wrist and arm rotations.',
     ],
     [
@@ -72,7 +72,7 @@ return [
         'price' => 1199.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'stancePads.png',
         'description' => 'Soft training pads placed under feet for shifting and sliding exercises.',
     ],
     [
@@ -80,7 +80,7 @@ return [
         'price' => 799.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'currentWraps.png',
         'description' => 'Arm wraps infused with sea salt and lavender for calming flow practice.',
     ],
     [
@@ -88,7 +88,7 @@ return [
         'price' => 2199.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'healingMat.png',
         'description' => 'A reflective training mat used in group bending drills or healing rituals.',
     ],
     [
@@ -96,7 +96,7 @@ return [
         'price' => 1299.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'glacialFan.png',
         'description' => 'A lightweight practice fan used to simulate ice slicing and wave forms.',
     ],
 
@@ -106,7 +106,7 @@ return [
         'price' => 1599.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'spiralBands.png',
         'description' => 'Elastic training bands used to encourage wide circular movements.',
     ],
     [
@@ -114,7 +114,7 @@ return [
         'price' => 3000.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'whisperCloak.png',
         'description' => 'Extremely lightweight hooded robe that responds to movement and airflow.',
     ],
     [
@@ -122,7 +122,7 @@ return [
         'price' => 1899.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'cycloneMat.png',
         'description' => 'A circular footwork mat used to train directional change and evasion.',
     ],
     [
@@ -130,7 +130,7 @@ return [
         'price' => 1199.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'monkBell.png',
         'description' => 'A bell that rings only with steady exhalation through a breathing tube.',
     ],
     [
@@ -138,7 +138,7 @@ return [
         'price' => 1699.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'gliderStaff.png',
         'description' => 'A shortened, padded version of the iconic glider staff.',
     ],
     [
@@ -146,7 +146,7 @@ return [
         'price' => 999.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'voidOrb.png',
         'description' => 'A lightweight sphere used during balance meditation and Ba Gua circles.',
     ],
 
@@ -156,7 +156,7 @@ return [
         'price' => 2099.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'tremorSandals.png',
         'description' => 'Weighted shoes designed to enhance stance practice and earth connection.',
     ],
     [
@@ -164,7 +164,7 @@ return [
         'price' => 1599.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'stoneBelt.png',
         'description' => 'A training belt that provides feedback on hip alignment during stances.',
     ],
     [
@@ -172,7 +172,7 @@ return [
         'price' => 1199.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'seismicRods.png',
         'description' => 'Handheld rods for training punching accuracy and resistance.',
     ],
     [
@@ -180,7 +180,7 @@ return [
         'price' => 1499.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'pillarStance.png',
         'description' => 'A rigid board with stone patterns to guide foot spacing.',
     ],
     [
@@ -188,7 +188,7 @@ return [
         'price' => 1399.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'ironroot.png',
         'description' => 'Forearm bands with internal sand-fill for slow, controlled bending drills.',
     ],
     [
@@ -196,7 +196,7 @@ return [
         'price' => 1299.00,
         'stock' => 20,
         'stock_quantity' => 20,
-        'image_url' => '',
+        'image_url' => 'badgermole.png',
         'description' => 'A pulse drum used during seismic sensing and earth-rhythm meditation.',
     ]
 ];
