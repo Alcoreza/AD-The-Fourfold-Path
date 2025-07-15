@@ -34,7 +34,7 @@ require_once dirname(__DIR__, 2) . '/bootstrap.php';
             <?php endif; ?>
 
             <form action="/pages/loginPage/authenticate.php" method="POST" class="login-form">
-                <label for="username">Username</label>
+                <label for="username">Username or Email</label>
                 <input type="text" id="username" name="username" required>
 
                 <label for="password">Password</label>
