@@ -15,7 +15,7 @@ ob_start();
     <div class="team-member slide-in">
         <img src="/assets/img/frontend.jpg" alt="Front-End Dev">
         <div class="member-info">
-            <h3>Clive Benito – Front-End Developer</h3>
+            <h3>Clive Owen Benito – Front-End Developer</h3>
             <p>Designed and built the UI using PHP, HTML, CSS, and JavaScript. Handled animations, responsiveness, and user interactions across all pages.</p>
         </div>
     </div>
@@ -23,7 +23,7 @@ ob_start();
     <div class="team-member slide-in">
         <img src="/assets/img/backend.jpg" alt="Back-End Dev">
         <div class="member-info">
-            <h3>Jane Doe – Back-End Developer</h3>
+            <h3>Weinard Manianglung – Back-End Developer</h3>
             <p>Developed authentication, routing, and server logic using PHP. Integrated sessions and handled data flow between components and the database.</p>
         </div>
     </div>
@@ -31,7 +31,7 @@ ob_start();
     <div class="team-member slide-in">
         <img src="/assets/img/database.jpg" alt="Database Admin">
         <div class="member-info">
-            <h3>John Lee – Database Administrator</h3>
+            <h3>Ozbert Ace Maxeme Sales – Database Administrator</h3>
             <p>Designed and maintained the database schema in MySQL, including tables for users, products, orders, and inventory. Ensured data integrity and security.</p>
         </div>
     </div>
@@ -39,7 +39,7 @@ ob_start();
     <div class="team-member slide-in">
         <img src="/assets/img/qa.jpg" alt="QA Tester">
         <div class="member-info">
-            <h3>Maria Santos – Quality Assurance</h3>
+            <h3>Elmer Daniel Alcoreza – Quality Assurance</h3>
             <p>Tested all features for bugs, UI inconsistencies, and edge cases. Helped ensure a seamless experience across different devices and browsers.</p>
         </div>
     </div>
