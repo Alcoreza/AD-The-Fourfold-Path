@@ -68,3 +68,19 @@ form.addEventListener("submit", (e) => {
         form.querySelector("input[name='action']").value = "add";
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const filter = document.getElementById('elementFilter');
+    const cards = document.querySelectorAll('.product-card');
+    filter.addEventListener('change', function() {
+        const selected = filter.value;
+        cards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (selected === 'all' || category === selected) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
