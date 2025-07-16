@@ -4,8 +4,8 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/zyx-0314/">
-    <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
+  <a href="https://github.com/Alcoreza/AD-The-Fourfold-Path">
+    <img src="/assets/img/favicon/favicon1.png" alt="The Fourfold Path" width="130" height="100">
   </a>
   <h3 align="center">AD-The-Fourfold-Path</h3>
 </div>
