@@ -35,8 +35,8 @@ $stmtUsers = $pdo->prepare("
 ");
 
 $stmtItems = $pdo->prepare("
-    INSERT INTO items (name, price, stock, stock_quantity, image_url, description)
-    VALUES (:name, :price, :stock, :stock_quantity, :image_url, :description)
+    INSERT INTO items (name, price, stock_quantity, image_url, description)
+    VALUES (:name, :price, :stock_quantity, :image_url, :description)
 ");
 
 $allSeeded = true;
@@ -63,7 +63,6 @@ try {
         $stmtItems->execute([
             ':name'           => $item['name'],
             ':price'          => $item['price'],
-            ':stock'          => $item['stock'],
             ':stock_quantity' => $item['stock_quantity'],
             ':image_url'      => $item['image_url'],
             ':description'    => $item['description'],
