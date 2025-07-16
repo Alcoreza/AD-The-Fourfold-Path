@@ -23,7 +23,7 @@ function loginUser(string $usernameOrEmail, string $password): array
     }
 
     // Query to find user by username OR email
-    $query = "SELECT id, username, password FROM users WHERE username = $1 OR email = $1";
+    $query = "SELECT id, username, password, email FROM users WHERE username = $1 OR email = $1";
     $result = pg_query_params($conn, $query, [$usernameOrEmail]);
 
     if (!$result || pg_num_rows($result) === 0) {
@@ -34,7 +34,7 @@ function loginUser(string $usernameOrEmail, string $password): array
     // Fetch user data
     $user = pg_fetch_assoc($result);
 
-    // Verify the password
+    // Verify the password using password_verify
     if (!password_verify($password, $user['password'])) {
         pg_close($conn);
         return ['error' => 'Invalid credentials.'];
@@ -48,12 +48,20 @@ function loginUser(string $usernameOrEmail, string $password): array
     // Store user data in the session
     $_SESSION['user'] = [
         'id' => $user['id'],
-        'username' => $user['username']
+        'username' => $user['username'],
+        'email' => $user['email']
     ];
 
-    // Close the connection
+    // Close the database connection
     pg_close($conn);
 
-    // Return success message
-    return ['success' => 'Login successful!'];
+    // Return success message along with user info
+    return [
+        'success' => 'Login successful!',
+        'user' => [
+            'id' => $user['id'],
+            'username' => $user['username'],
+            'email' => $user['email']
+        ]
+    ];
 }
