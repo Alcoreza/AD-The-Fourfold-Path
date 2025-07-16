@@ -21,34 +21,33 @@ ob_start();
     <h1>Your Elemental Cart</h1>
 
     <?php if (empty($cartItems)): ?>
-        <div class="empty-cart">
+        <div id="cart-empty" class="empty-cart">
             <img src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png" alt="Empty Cart Icon" />
             <p>Your cart is still empty... summon a product!</p>
         </div>
     <?php else: ?>
-        <div class="cart-items">
+        <div id="cart-items" class="cart-items">
             <?php foreach ($cartItems as $item): ?>
-                <div class="cart-card">
+                <div class="cart-card" data-cart-item-id="<?= $item['cart_item_id'] ?>" data-price="<?= $item['price'] ?>">
+
                     <img src="<?= htmlspecialchars($item['image_url']) ?>" alt="<?= htmlspecialchars($item['name']) ?>">
                     <div class="cart-info">
                         <h3><?= htmlspecialchars($item['name']) ?></h3>
                         <p>Price: ₱<?= number_format($item['price'], 2) ?></p>
-                        <form method="POST" action="/handlers/cartItems.handler.php">
-                            <input type="hidden" name="action" value="update">
-                            <input type="hidden" name="cart_item_id" value="<?= $item['cart_item_id'] ?>">
-                            <div class="quantity-control">
-                                <button type="submit" name="quantity" value="<?= max(1, $item['quantity'] - 1) ?>">-</button>
-                                <input type="number" name="quantity" value="<?= $item['quantity'] ?>" min="1">
-                                <button type="submit" name="quantity" value="<?= $item['quantity'] + 1 ?>">+</button>
-                            </div>
-                        </form>
+
+                        <div class="quantity-controls">
+                            <button type="button" class="qty-btn" data-action="minus">−</button>
+                            <span class="qty"><?= $item['quantity'] ?></span>
+                            <button type="button" class="qty-btn" data-action="plus">+</button>
+                        </div>
+
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
 
-        <div class="checkout">
-            <button class="btn">Proceed to Checkout</button>
+        <div id="checkout-section" class="checkout">
+            <button class="btn">Finish Order</button>
         </div>
     <?php endif; ?>
 </div>
