@@ -1,56 +1,65 @@
-const cartItems = [];
-const cartContainer = document.getElementById("cart-items");
-const emptyCart = document.getElementById("cart-empty");
-const checkoutSection = document.getElementById("checkout-section");
-
-function addToCart(product) {
-    cartItems.push(product);
-    renderCart();
-}
-
-function renderCart() {
-    cartContainer.innerHTML = '';
-
-    if (cartItems.length === 0) {
-        emptyCart.style.display = 'block';
-        cartContainer.style.display = 'none';
-        checkoutSection.style.display = 'none';
-        return;
-    }
-
-    emptyCart.style.display = 'none';
-    cartContainer.style.display = 'flex';
-    checkoutSection.style.display = 'block';
-
-    cartItems.forEach(item => {
-    const itemDiv = document.createElement("div");
-    itemDiv.classList.add("cart-item", item.element);
-
-    itemDiv.innerHTML = `
-        <div class="item-info">
-            <div class="item-title">${item.name}</div>
-            <div class="item-price">₱${item.price}</div>
-        </div>
-        <div>
-            <button class="btn" onclick="removeFromCart('${item.name}')">Remove</button>
-        </div>
-    `;
-
-        cartContainer.appendChild(itemDiv);
-    });
-}
-
-function removeFromCart(name) {
-    const index = cartItems.findIndex(i => i.name === name);
-    if (index > -1) {
-        cartItems.splice(index, 1);
-        renderCart();
-    }
-}
-
-    // Example items (simulate clicking 'add to cart' from product.php)
-window.addEventListener('DOMContentLoaded', () => {
-    // Comment these in when integrating:
-    // addToCart({ name: 'Agni Gloves', price: 1200, element: 'fire' });
-    // addToCart({ name: 'Northern Water Flask', price: 890, element: 'water' });
+document.addEventListener("DOMContentLoaded", () => {
+  // Attach listeners immediately since cart items are rendered in PHP
+  attachQuantityListeners();
 });
+
+function attachQuantityListeners() {
+  document.querySelectorAll(".qty-btn").forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault(); // prevent any default behavior (just in case)
+
+      const card = button.closest(".cart-card");
+      const qtySpan = card.querySelector(".qty");
+
+      const cartItemId = card.dataset.cartItemId;
+      const price = parseFloat(card.dataset.price);
+      const action = button.dataset.action;
+
+      let quantity = parseInt(qtySpan.textContent);
+      quantity = action === "plus" ? quantity + 1 : quantity - 1;
+
+      if (quantity < 0) return;
+
+      // Update UI immediately
+      qtySpan.textContent = quantity;
+
+      // Send quantity update to backend
+      fetch("/handlers/cartItems.handler.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          action: "update",
+          cart_item_id: cartItemId,
+          quantity: quantity,
+        }),
+      })
+        .then((res) => {
+          if (res.status === 204) return null; // Silent success
+          return res.json();
+        })
+        .then((data) => {
+          if (data?.error) {
+            alert(data.error);
+            return;
+          }
+
+          // If quantity becomes 0, remove the item from DOM
+          if (quantity === 0) {
+            card.remove();
+            const remaining = document.querySelectorAll(".cart-card").length;
+            if (remaining === 0) {
+              document.getElementById("cart-items").style.display = "none";
+              document.getElementById("cart-empty").style.display = "block";
+              document.getElementById("checkout-section").style.display =
+                "none";
+            }
+          }
+        })
+        .catch((err) => {
+          console.error("Error updating cart item:", err);
+        });
+    });
+  });
+}

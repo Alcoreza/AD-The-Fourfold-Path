@@ -12,15 +12,18 @@ h1 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 30px;
+    color: #3e2723;
 }
 
 .empty-cart {
     text-align: center;
     padding: 50px 20px;
+    font-size: 1.2rem;
+    color: #5d4037;
 }
 
 .empty-cart img {
-    width: 100px;
+    width: 120px;
     opacity: 0.5;
     margin-bottom: 20px;
 }
@@ -31,50 +34,111 @@ h1 {
     gap: 20px;
 }
 
-.cart-item {
+/* Updated cart-card block */
+.cart-card {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 20px;
     border-radius: 12px;
-    border-left: 6px solid #4dd0e1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    gap: 20px;
+    border-left: 6px solid #6d4c41;
+    transition: transform 0.2s ease;
 }
 
-.cart-item.fire { border-left-color: #ff7043; }
-.cart-item.water { border-left-color: #42a5f5; }
-.cart-item.earth { border-left-color: #8bc34a; }
-.cart-item.air { border-left-color: #b2ebf2; }
+.cart-card:hover {
+    transform: scale(1.01);
+}
 
-.item-info {
+/* Elemental colors (if you tag cards dynamically with .fire, .water, etc.) */
+.cart-card.fire { border-left-color: #ff7043; }
+.cart-card.water { border-left-color: #42a5f5; }
+.cart-card.earth { border-left-color: #8bc34a; }
+.cart-card.air { border-left-color: #b2ebf2; }
+
+.cart-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #fff3e0;
+}
+
+.cart-info {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.item-title {
-    font-size: 1.2rem;
+.cart-info h3 {
+    font-family: 'Caudex', serif;
+    font-size: 1.4rem;
+    color: #4e342e;
+    margin: 0;
 }
 
-.item-price {
-    font-weight: bold;
+.cart-info p {
+    font-family: 'Caudex', serif;
     font-size: 1.1rem;
+    color: #5d4037;
+    margin: 0;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.qty-btn {
+    background: #6d4c41;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.qty-btn:hover {
+    background: #8d6e63;
+}
+
+.qty {
+    font-family: 'Caudex', serif;
+    font-size: 1.2rem;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* Optional: Total price below quantity */
+.cart-info .total {
+    font-weight: bold;
+    margin-top: 8px;
+    color: #3e2723;
 }
 
 .checkout {
     text-align: right;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .btn {
-    background: #26a69a;
+    background: #8d6e63;
     color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 12px 24px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
     transition: background 0.3s ease;
+    font-family: 'Caudex', serif;
 }
 
 .btn:hover {
-    background: #2bbbad;
+    background: #553b31;
 }
