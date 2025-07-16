@@ -1,5 +1,5 @@
 <?php
-require_once BOOTSTRAP_PATH;
+require_once '../../bootstrap.php';
 require_once UTILS_PATH . 'cartItems.util.php';
 
 $pageTitle = 'Cart';
