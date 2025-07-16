@@ -1,19 +1,23 @@
 <?php
-require_once UTILS_PATH . 'envSetter.util.php';
+require_once UTILS_PATH . 'envSetter.util.php'; // Assuming this file contains necessary DB config
 
 function registerUser(string $username, string $email, string $password): array
 {
+    // Basic email validation
     if (!filter_var($email, FILTER_VALIDATE_EMAIL) || !preg_match('/\.[a-z]{2,}$/i', $email)) {
         return ['error' => 'Invalid email format.'];
     }
 
+    // Hash password
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
+    // Check if PostgreSQL configuration exists
     global $pgConfig;
     if (!isset($pgConfig) || !is_array($pgConfig)) {
         return ['error' => 'PostgreSQL configuration is missing.'];
     }
 
+    // Create connection string
     $connStr = sprintf(
         "host=%s port=%s dbname=%s user=%s password=%s",
         $pgConfig['host'],
@@ -23,6 +27,7 @@ function registerUser(string $username, string $email, string $password): array
         $pgConfig['pass']
     );
 
+    // Connect to the database
     $conn = pg_connect($connStr);
     if (!$conn) {
         return ['error' => 'Database connection failed.'];
@@ -40,7 +45,7 @@ function registerUser(string $username, string $email, string $password): array
         return ['error' => 'Username or email already exists.'];
     }
 
-    // Insert new user
+    // Insert new user into the users table
     $insertResult = pg_query_params(
         $conn,
         "INSERT INTO users (username, password, email) VALUES ($1, $2, $3) RETURNING id",
@@ -52,9 +57,10 @@ function registerUser(string $username, string $email, string $password): array
         return ['error' => 'Registration failed. Please try again.'];
     }
 
+    // Retrieve the new user's ID
     $userId = pg_fetch_result($insertResult, 0, 'id');
 
-    // Create cart for the new user
+    // Create an empty cart for the new user
     $cartResult = pg_query_params(
         $conn,
         "INSERT INTO carts (user_id) VALUES ($1)",
@@ -64,8 +70,9 @@ function registerUser(string $username, string $email, string $password): array
     pg_close($conn);
 
     if (!$cartResult) {
-        return ['error' => 'User created but cart initialization failed.'];
+        return ['error' => 'User created, but cart initialization failed.'];
     }
 
+    // Successful registration message
     return ['success' => 'Registration successful! Redirecting to login...'];
 }
