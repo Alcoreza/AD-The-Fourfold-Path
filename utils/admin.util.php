@@ -1,17 +1,8 @@
 <?php
-// admin.util.php
-
 require_once UTILS_PATH . 'envSetter.util.php';
 
-/**
- * Establish and return a PostgreSQL database connection.
- *
- * @return resource PostgreSQL connection resource
- */
-function getDbConnection()
-{
+function getDbConnection() {
     global $pgConfig;
-
     $conn = pg_connect(sprintf(
         "host=%s port=%s dbname=%s user=%s password=%s",
         $pgConfig['host'],
@@ -20,32 +11,15 @@ function getDbConnection()
         $pgConfig['user'],
         $pgConfig['pass']
     ));
-
     if (!$conn) {
         die("Database connection failed");
     }
-
     return $conn;
 }
 
-/**
- * Retrieve all non-deleted products from the database, optionally filtered by element.
- *
- * @param string|null $element
- * @return array
- */
-function getAllProducts(?string $element = null): array
-{
+function getAllProducts(): array {
     $conn = getDbConnection();
-    $params = [];
-    $where = "WHERE isDELETED = FALSE";
-    if ($element && in_array($element, ['fire', 'water', 'earth', 'air'])) {
-        $where .= " AND image_url LIKE $1";
-        $params[] = "%/{$element}/%";
-    }
-    $query = "SELECT item_id, name, price, image_url, stock_quantity, description FROM items $where ORDER BY item_id DESC";
-    $result = pg_query_params($conn, $query, $params);
-
+    $result = pg_query($conn, "SELECT item_id, name, price, image_url, stock_quantity, description FROM items WHERE isDELETED = FALSE ORDER BY item_id DESC");
     $products = [];
     while ($row = pg_fetch_assoc($result)) {
         $row['element'] = getElementFromUrl($row['image_url'] ?? '');
@@ -55,99 +29,70 @@ function getAllProducts(?string $element = null): array
     return $products;
 }
 
-/**
- * Get a single product by ID.
- */
-function getProductById($itemId)
-{
+function addProduct($data): bool {
+    $name = trim($data['name'] ?? '');
+    $price = (float)($data['price'] ?? 0);
+    $image = trim($data['image_url'] ?? '');
+    $quantity = (int)($data['stock_quantity'] ?? 0);
+    $desc = trim($data['description'] ?? '');
+    if (!$name || $price <= 0 || $quantity < 0) return false;
     $conn = getDbConnection();
-    $query = "SELECT item_id, name, price, image_url, stock_quantity, description FROM items WHERE item_id = $1 AND isDELETED = FALSE";
-    $result = pg_query_params($conn, $query, [$itemId]);
-    $product = pg_fetch_assoc($result);
-    if ($product) {
-        $product['element'] = getElementFromUrl($product['image_url'] ?? '');
-    }
-    pg_close($conn);
-    return $product;
-}
-
-/**
- * Infer the elemental type from the image URL.
- */
-function getElementFromUrl(string $url): string
-{
-    if (strpos($url, '/fire/') !== false) {
-        return 'fire';
-    } elseif (strpos($url, '/water/') !== false) {
-        return 'water';
-    } elseif (strpos($url, '/earth/') !== false) {
-        return 'earth';
-    } elseif (strpos($url, '/air/') !== false) {
-        return 'air';
-    }
-    return 'unknown';
-}
-
-/**
- * Adds a new product to the database.
- * @param array $data
- * @return array|false The inserted product or false on failure
- */
-function addProduct(array $data)
-{
-    $conn = getDbConnection();
-    $query = "INSERT INTO items (name, price, image_url, stock_quantity, description) VALUES ($1, $2, $3, $4, $5) RETURNING item_id, name, price, image_url, stock_quantity, description";
-    $result = pg_query_params($conn, $query, [
-        $data['name'],
-        $data['price'],
-        $data['image_url'] ?? '',
-        $data['stock_quantity'] ?? 0,
-        $data['description'] ?? ''
-    ]);
-    $product = $result ? pg_fetch_assoc($result) : false;
-    if ($product) {
-        $product['element'] = getElementFromUrl($product['image_url'] ?? '');
-    }
-    pg_close($conn);
-    return $product;
-}
-
-/**
- * Updates an existing product.
- * @param string $itemId
- * @param array $data
- * @return array|false The updated product or false on failure
- */
-function updateProduct(string $itemId, array $data)
-{
-    $conn = getDbConnection();
-    $query = "UPDATE items SET name = $1, price = $2, image_url = $3, stock_quantity = $4, description = $5 WHERE item_id = $6 RETURNING item_id, name, price, image_url, stock_quantity, description";
-    $result = pg_query_params($conn, $query, [
-        $data['name'],
-        $data['price'],
-        $data['image_url'] ?? '',
-        $data['stock_quantity'] ?? 0,
-        $data['description'] ?? '',
-        $itemId
-    ]);
-    $product = $result ? pg_fetch_assoc($result) : false;
-    if ($product) {
-        $product['element'] = getElementFromUrl($product['image_url'] ?? '');
-    }
-    pg_close($conn);
-    return $product;
-}
-
-/**
- * Soft deletes a product by setting isDELETED to true.
- * @param string $itemId
- * @return bool
- */
-function deleteProduct(string $itemId): bool
-{
-    $conn = getDbConnection();
-    $query = "UPDATE items SET isDELETED = TRUE WHERE item_id = $1";
-    $result = pg_query_params($conn, $query, [$itemId]);
+    $result = pg_query_params(
+        $conn,
+        "INSERT INTO items (name, price, image_url, stock_quantity, description) VALUES ($1, $2, $3, $4, $5)",
+        [$name, $price, $image, $quantity, $desc]
+    );
     pg_close($conn);
     return $result !== false;
+}
+
+function updateProduct($data): bool {
+    $id = (int)($data['item_id'] ?? 0);
+    $name = trim($data['name'] ?? '');
+    $price = (float)($data['price'] ?? 0);
+    $image = array_key_exists('image_url', $data) ? trim($data['image_url']) : '';
+    $quantity = array_key_exists('stock_quantity', $data) && $data['stock_quantity'] !== '' ? (int)$data['stock_quantity'] : null;
+    $desc = trim($data['description'] ?? '');
+    if (!$id || !$name || $price <= 0) return false;
+    $conn = getDbConnection();
+    // If image_url or stock_quantity is empty, keep the old one
+    $old = null;
+    if ($image === '' || $quantity === null) {
+        $res = pg_query_params($conn, "SELECT image_url, stock_quantity FROM items WHERE item_id = $1", [$id]);
+        $old = pg_fetch_assoc($res);
+    }
+    if ($image === '' && $old) {
+        $image = $old['image_url'];
+    }
+    if ($quantity === null && $old) {
+        $quantity = (int)$old['stock_quantity'];
+    }
+    if ($quantity < 0) {
+        pg_close($conn);
+        return false;
+    }
+    $result = pg_query_params(
+        $conn,
+        "UPDATE items SET name = $1, price = $2, image_url = $3, stock_quantity = $4, description = $5 WHERE item_id = $6",
+        [$name, $price, $image, $quantity, $desc, $id]
+    );
+    pg_close($conn);
+    return $result !== false;
+}
+
+function deleteProduct($data): bool {
+    $id = (int)($data['item_id'] ?? 0);
+    if (!$id) return false;
+    $conn = getDbConnection();
+    $result = pg_query_params($conn, "UPDATE items SET isDELETED = TRUE WHERE item_id = $1", [$id]);
+    pg_close($conn);
+    return $result !== false;
+}
+
+function getElementFromUrl(string $url): string {
+    if (strpos($url, '/fire/') !== false) return 'fire';
+    if (strpos($url, '/water/') !== false) return 'water';
+    if (strpos($url, '/earth/') !== false) return 'earth';
+    if (strpos($url, '/air/') !== false) return 'air';
+    return 'unknown';
 }
