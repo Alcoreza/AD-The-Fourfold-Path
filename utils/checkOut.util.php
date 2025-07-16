@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/envSetter.util.php';
+require_once HANDLERS_PATH . '/envSetter.util.php';
 
 
 function completeOrderForUser($userId): array
