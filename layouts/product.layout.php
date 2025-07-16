@@ -6,6 +6,8 @@
 
     <title><?= isset($pageTitle) ? htmlspecialchars($pageTitle) . ' | The Fourfold Path' : 'The Fourfold Path' ?></title>
 
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon1.png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Caudex&family=Uncial+Antiqua&display=swap" rel="stylesheet">
     <link href="/assets/css/styles.css" rel="stylesheet">
