@@ -81,7 +81,7 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 8px;
     font-family: 'Caudex', serif;
-    }
+}
 
 .admin-btn {
     grid-column: span 4;
@@ -107,7 +107,23 @@ h2 {
     gap: 25px;
 }
 
-.product img {
+.product-card {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.product-card img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product-image {
     width: 100%;
     max-height: 220px;
     object-fit: cover;
@@ -140,19 +156,19 @@ h2 {
     margin-top: 10px;
 }
 
-.product-image {
-    width: 100%;
-    max-height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
 .delete-btn {
     background-color: #a82a2a;
     text-align: center;
+    margin-top: 5px;
 }
 
 .delete-btn:hover {
     background-color: #7c1f1f;
+}
+
+.admin-form textarea,
+.admin-form input,
+.admin-form select {
+    box-sizing: border-box;
+    width: 100%;
 }

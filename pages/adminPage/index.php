@@ -33,9 +33,8 @@ ob_start();
             <input type="number" placeholder="Price (₱)" name="price" required>
             <input type="url" placeholder="Image URL" name="image_url">
             <input type="number" placeholder="Stock Quantity" name="stock_quantity" required>
-            <textarea name="description" placeholder="Product Description" rows="2"
-                style="width: 100%; padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; resize: vertical; font-family: inherit;"></textarea>
-            <div style="display: flex; justify-content: center; margin-top: 10px;">
+            <textarea name="description" placeholder="Product Description" rows="2" class="admin-description"></textarea>
+            <div class="admin-btn-wrapper">
                 <button type="submit" class="admin-btn">Add Product</button>
             </div>
         </form>
@@ -61,46 +60,27 @@ ob_start();
         ?>
         <div class="product-card show" data-category="<?= $nation ?>">
             <?php if (!empty($item['image_url'])): ?>
-                <img src="<?= htmlspecialchars($item['image_url']) ?>" alt="<?= htmlspecialchars($item['name']) ?>"
-                    style="width: 100%; max-height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
+                <img src="<?= htmlspecialchars($item['image_url']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="product-image">
             <?php endif; ?>
             <form method="POST" action="/handlers/admin.handler.php" class="admin-form" style="margin-bottom:0;">
                 <input type="hidden" name="action" value="update">
                 <input type="hidden" name="item_id" value="<?= $item['item_id'] ?>">
                 <input type="text" name="name" value="<?= htmlspecialchars($item['name']) ?>" required>
                 <input type="number" name="price" value="<?= $item['price'] ?>" required>
-                <textarea name="description" placeholder="Description"
-                    style="width: 100%; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; resize: vertical; font-family: inherit;"><?= htmlspecialchars($item['description'] ?? '') ?></textarea>
-                <div style="gap: 10px; margin-top: 10px;">
+                <textarea name="description" placeholder="Description" class="admin-description"><?= htmlspecialchars($item['description'] ?? '') ?></textarea>
+                <div class="admin-btn-group">
                     <button type="submit" class="add-to-cart-btn">Save</button>
                 </div>
             </form>
             <form method="POST" action="/handlers/admin.handler.php" style="display:inline;">
                 <input type="hidden" name="action" value="delete">
                 <input type="hidden" name="item_id" value="<?= $item['item_id'] ?>">
-                <button type="submit" class="add-to-cart-btn delete-btn" style="background-color: #a82a2a; text-align: center; margin-top: 5px;" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+                <button type="submit" class="add-to-cart-btn delete-btn" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
             </form>
         </div>
     <?php endforeach; ?>
 </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const filter = document.getElementById('elementFilter');
-    const cards = document.querySelectorAll('.product-card');
-    filter.addEventListener('change', function() {
-        const selected = filter.value;
-        cards.forEach(card => {
-            const category = card.getAttribute('data-category');
-            if (selected === 'all' || category === selected) {
-                card.style.display = '';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-});
-</script>
 <?php
 $content = ob_get_clean();
 require_once LAYOUT_PATH . '/admin.layout.php';
