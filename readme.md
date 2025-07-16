@@ -4,14 +4,11 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/zyx-0314/">
-  <!-- TODO: If you want to add logo or banner you can add it here -->
-    <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
+  <a href="https://github.com/Alcoreza/AD-The-Fourfold-Path">
+    <img src="/assets/img/favicon/favicon1.png" alt="The Fourfold Path" width="130" height="100">
   </a>
-<!-- TODO: Change Title to the name of the title of your Project -->
   <h3 align="center">AD-The-Fourfold-Path</h3>
 </div>
-<!-- TODO: Make a short description -->
 <div align="center">
   The Fourfold Path is an Avatar-inspired online store where users choose an element and shop themed gear, scrolls, and wellness items tied to fire, water, air, or earth.
 </div>
@@ -145,8 +142,6 @@ AD-ProjectName
 > The following should be renamed: name.css, name.js, name.jpeg/.jpg/.webp/.png, name.component.php(but not the part of the `component.php`), Name.utils.php(but not the part of the `utils.php`)
 
 ## Resources
-
-<!-- TODO: Add References -->
 
 | Title   | Purpose                                                              | Link                    |
 | ------- | -------------------------------------------------------------------- | ----------------------- |
