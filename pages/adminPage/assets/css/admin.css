@@ -107,7 +107,16 @@ h2 {
     gap: 25px;
 }
 
-.product img {
+.product-card {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card img {
     width: 100%;
     max-height: 220px;
     object-fit: cover;
@@ -156,4 +165,11 @@ h2 {
 
 .delete-btn:hover {
     background-color: #7c1f1f;
+}
+
+.admin-form textarea,
+.admin-form input,
+.admin-form select {
+    box-sizing: border-box;
+    width: 100%;
 }
