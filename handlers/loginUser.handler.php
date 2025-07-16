@@ -1,5 +1,4 @@
 <?php
-
 require_once BOOTSTRAP_PATH;
 require_once UTILS_PATH . 'loginUser.util.php';
 
@@ -19,7 +18,12 @@ function handleUserLogin(): void
     $result = loginUser($usernameOrEmail, $password);
 
     if (isset($result['error'])) {
-        redirectWithError($result['error'], '/pages/loginPage/index.php');
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $_SESSION['login_failed'] = true;
+        header('Location: /errors/loginError.error.php');
+        exit;
     }
 
     if (isset($result['success']) && isset($result['user'])) {
