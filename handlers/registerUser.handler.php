@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__DIR__) . '/bootstrap.php';
+require_once BOOTSTRAP_PATH;
 require_once UTILS_PATH . 'registerUser.util.php';
 
 function handleUserRegister(): void
