@@ -55,8 +55,6 @@ ob_start();
                 <input type="hidden" name="item_id" value="<?= $item['item_id'] ?>">
                 <input type="text" name="name" value="<?= htmlspecialchars($item['name']) ?>" required>
                 <input type="number" name="price" value="<?= $item['price'] ?>" required>
-                <input type="url" name="image_url" value="<?= htmlspecialchars($item['image_url']) ?>">
-                <input type="number" name="stock_quantity" value="<?= $item['stock_quantity'] ?>" required>
                 <textarea name="description" placeholder="Description"
                     style="width: 100%; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; resize: vertical; font-family: inherit;"><?= htmlspecialchars($item['description'] ?? '') ?></textarea>
                 <div style="display: flex; gap: 10px; margin-top: 10px;">
@@ -67,8 +65,6 @@ ob_start();
                 <input type="hidden" name="action" value="delete">
                 <input type="hidden" name="item_id" value="<?= $item['item_id'] ?>">
                 <button type="submit" class="add-to-cart-btn delete-btn" style="background-color: #a82a2a; text-align: center; margin-top: 5px;" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
-       </a>
-                </div>
             </form>
         </div>
     <?php endforeach; ?>
