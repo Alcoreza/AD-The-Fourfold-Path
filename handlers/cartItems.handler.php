@@ -5,8 +5,10 @@ require_once UTILS_PATH . 'cartItems.util.php';
 
 header('Content-Type: application/json');
 
-// Check if user is logged in
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (!isset($_SESSION['user']['id'])) {
     echo json_encode(['error' => 'User not authenticated']);
     exit;
@@ -51,8 +53,8 @@ if ($method === 'POST') {
             exit;
         }
 
-        $result = updateCartItemQuantity($cartItemId, $qty);
-        echo json_encode($result);
+        updateCartItemQuantity($cartItemId, $qty);
+        http_response_code(204); // No Content
         exit;
     }
 
