@@ -1,37 +1,40 @@
 <?php
+
 require_once dirname(__DIR__) . '/bootstrap.php';
 require_once UTILS_PATH . 'loginUser.util.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usernameOrEmail = trim($_POST['username'] ?? '');
-    $password = trim($_POST['password'] ?? '');
-
-    // Validate fields before sending to util
-    if (empty($usernameOrEmail) || empty($password)) {
-        $_SESSION['login_error'] = 'Please fill in all fields.';
-        header('Location: /pages/loginPage/index.php');
-        exit;
+function handleUserLogin(): void
+{
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        header("Location: /pages/loginPage/index.php");
+        exit();
     }
 
+    // Sanitize and retrieve input from the POST request
+    $usernameOrEmail = trim($_POST['username'] ?? '');
+    $password = $_POST['password'] ?? '';
+
+    // Basic validation: Ensure both fields are provided
+    if (empty($usernameOrEmail) || empty($password)) {
+        $_SESSION['login_error'] = "Both username/email and password are required.";
+        header("Location: /pages/loginPage/index.php");
+        exit();
+    }
+
+    // Call the loginUser function to check credentials
     $result = loginUser($usernameOrEmail, $password);
 
-    if (isset($result['error'])) {
-        $_SESSION['login_error'] = $result['error'];
-        header('Location: /pages/loginPage/index.php');
-        exit;
-    }
-
-    if (isset($result['success']) && isset($result['user'])) {
-        $_SESSION['user'] = $result['user'];
-        $_SESSION['user_id'] = $result['user']['id'];
+    // Handle login success or error
+    if (isset($result['success'])) {
         $_SESSION['login_success'] = $result['success'];
-
-        header('Location: /index.php');
-        exit;
+        header("Location: /pages/dashboard/index.php"); // Redirect to dashboard or another page
+    } else {
+        $_SESSION['login_error'] = $result['error'];
+        header("Location: /pages/loginPage/index.php");
     }
 
-} else {
-    // If someone tries to access directly
-    header('Location: /pages/loginPage/index.php');
-    exit;
+    exit();
 }
+
+// Run the login handler
+handleUserLogin();
