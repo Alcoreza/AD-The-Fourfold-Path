@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__DIR__) . '/bootstrap.php';
+require_once BOOTSTRAP_PATH;
 require_once UTILS_PATH . 'logoutUser.util.php';
 
 logoutUser();
