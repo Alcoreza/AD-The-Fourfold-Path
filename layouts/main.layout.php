@@ -8,6 +8,8 @@
 
     <?php if (isset($metaRedirect)) echo $metaRedirect; ?>
 
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon1.png">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
