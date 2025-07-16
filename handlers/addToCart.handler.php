@@ -10,10 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Content-Type: application/json');
 
     if (!isset($_SESSION['user']['id'])) {
-        http_response_code(401);
-        echo json_encode(['error' => 'User not logged in']);
-        exit;
-    }
+    echo json_encode(['error' => 'User not authenticated']);
+    exit;
+}
+
 
     $userId = $_SESSION['user']['id'];
     $title = $_POST['title'] ?? '';
