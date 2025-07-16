@@ -18,7 +18,7 @@ ob_start();
 <main class="register-container">
     <div class="register-box fade-in-section">
         <h2>Create Bender</h2>
-        <form class="register-form" action="/handlers/userRegister.handler.php" method="post" autocomplete="off">
+        <form class="register-form" action="/handlers/registerUser.handler.php" method="post" autocomplete="off">
             <!-- Fields here -->
             <label for="username">Username</label>
             <input type="text" name="username" required>
