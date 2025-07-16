@@ -1,0 +1,101 @@
+body.error-page {
+    background-image: url('/assets/img/paperFibers.jpg');
+    color: #3e2c18;
+    font-family: "Caudex", Georgia, serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body.error-page::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+main.error-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.error-box {
+    background: #fff4d1;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 500px;
+}
+
+.error-box h2 {
+    color: #8a3c00;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.error-box p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.error-box a:hover {
+    color: #8a3c00;
+}
+
+.create-account {
+    color: #8a3c00;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #764c12;
+    color: #fff8e7;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    background-color: #a4641a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes boxPulse {
+    0% { box-shadow: 0 0 0 rgb(97, 0, 0); }
+    50% { box-shadow: 0 0 25px rgb(255, 0, 0); }
+    100% { box-shadow: 0 0 0 rgb(86, 0, 0); }
+}
+
+.error-box.animate-in {
+    animation:
+        fadeSlideIn 0.7s ease-out,
+        boxPulse 1.8s ease-in-out 0.9s infinite;
+}
