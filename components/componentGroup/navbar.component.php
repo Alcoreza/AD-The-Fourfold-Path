@@ -1,5 +1,10 @@
 <nav class="navbar">
-    <div class="nav-brand">The Fourfold Path</div>
+    <div class="nav-brand">
+        <a href="/index.php" class="nav-brand-link">
+            <img src="/assets/img/favicon/favicon1.png" alt="The Fourfold Path Logo" class="nav-logo">
+            <span>The Fourfold Path</span>
+        </a>
+    </div>
     <ul class="nav-links">
         <li><a href="/index.php">Home</a></li>
         <li><a href="/pages/productPage/index.php">Products</a></li>
