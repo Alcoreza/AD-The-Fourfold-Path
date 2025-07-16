@@ -63,3 +63,36 @@ function attachQuantityListeners() {
     });
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const finishBtn = document.querySelector(".btn");
+  if (!finishBtn) return;
+
+  finishBtn.addEventListener("click", async () => {
+    if (!confirm("Are you sure you want to finish your order?")) return;
+
+    try {
+      const res = await fetch("/handlers/checkOut.handler.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const result = await res.json();
+      console.log(result); // Debugging
+
+      if (result.status === "success") {
+        alert("✅ " + result.message);
+        location.reload(); // or redirect to thank you page
+      } else {
+        alert("❌ " + result.message);
+      }
+    } catch (err) {
+      console.error("Request failed", err);
+      // Try to log the raw response if available
+      if (err && err.response && typeof err.response.text === 'function') {
+        err.response.text().then(txt => console.log("Raw response:", txt));
+      }
+      alert("⚠ Something went wrong. Please try again.");
+    }
+  });
+});
