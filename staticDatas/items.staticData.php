@@ -4,7 +4,6 @@ return [
     [
         'name' => 'Agni Drill Gloves',
         'price' => 1999.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/fire/agniGloves.png',
         'description' => 'Specialized fire-resistant gloves for breathing synchronization and strike training.',
@@ -12,7 +11,6 @@ return [
     [
         'name' => 'Breath of Sozin Mask',
         'price' => 1499.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/fire/sozinMask.png',
         'description' => 'A martial arts breathing mask infused with warming herbs.',
@@ -20,7 +18,6 @@ return [
     [
         'name' => 'Blazing Kata Scrolls',
         'price' => 999.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/fire/blazingScrolls.png',
         'description' => 'Advanced firebending sequences for agility, footwork, and controlled bursts.',
@@ -28,7 +25,6 @@ return [
     [
         'name' => 'Flame Arc Bands',
         'price' => 1249.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/fire/flameBands.png',
         'description' => 'Wrist bands weighted for training rapid strikes and whip motions.',
@@ -36,7 +32,6 @@ return [
     [
         'name' => 'Dancing Dragon Silks',
         'price' => 2499.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/fire/dragonSilk.png',
         'description' => 'Traditional practice robes for dual form routines.',
@@ -44,7 +39,6 @@ return [
     [
         'name' => 'Inferno Training Mat',
         'price' => 2499.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/fire/infernoMat.png',
         'description' => 'High-grip mat with flame-flow pattern to guide stance work.',
@@ -54,7 +48,6 @@ return [
     [
         'name' => 'Flowform Sash',
         'price' => 1499.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/water/flowformSash.png',
         'description' => 'A cloth band worn around the waist for balance and motion awareness.',
@@ -62,7 +55,6 @@ return [
     [
         'name' => 'Moon Pull Stones',
         'price' => 749.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/water/moonStones.png',
         'description' => 'Two small orbs used to train fluid wrist and arm rotations.',
@@ -70,7 +62,6 @@ return [
     [
         'name' => 'Tidal Stance Pads',
         'price' => 1199.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/water/stancePads.png',
         'description' => 'Soft training pads placed under feet for shifting and sliding exercises.',
@@ -78,7 +69,6 @@ return [
     [
         'name' => 'Spirit Current Wraps',
         'price' => 799.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/water/currentWraps.png',
         'description' => 'Arm wraps infused with sea salt and lavender for calming flow practice.',
@@ -86,7 +76,6 @@ return [
     [
         'name' => 'Healing Circle Mat',
         'price' => 2199.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/water/healingMat.png',
         'description' => 'A reflective training mat used in group bending drills or healing rituals.',
@@ -94,7 +83,6 @@ return [
     [
         'name' => 'Glacial Edge Fan',
         'price' => 1299.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/water/glacialFan.png',
         'description' => 'A lightweight practice fan used to simulate ice slicing and wave forms.',
@@ -104,7 +92,6 @@ return [
     [
         'name' => 'Spiral Motion Bands',
         'price' => 1599.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/air/spiralBands.png',
         'description' => 'Elastic training bands used to encourage wide circular movements.',
@@ -112,7 +99,6 @@ return [
     [
         'name' => 'Whisper Cloak',
         'price' => 3000.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/air/whisperCloak.png',
         'description' => 'Extremely lightweight hooded robe that responds to movement and airflow.',
@@ -120,7 +106,6 @@ return [
     [
         'name' => 'Cyclone Steps Mat',
         'price' => 1899.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/air/cycloneMat.png',
         'description' => 'A circular footwork mat used to train directional change and evasion.',
@@ -128,7 +113,6 @@ return [
     [
         'name' => 'Monk Gyatso Breath Bell',
         'price' => 1199.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/air/monkBell.png',
         'description' => 'A bell that rings only with steady exhalation through a breathing tube.',
@@ -136,7 +120,6 @@ return [
     [
         'name' => 'Glider Staff Trainer',
         'price' => 1699.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/air/gliderStaff.png',
         'description' => 'A shortened, padded version of the iconic glider staff.',
@@ -144,7 +127,6 @@ return [
     [
         'name' => 'Void Meditation Ord',
         'price' => 999.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/air/voidOrb.png',
         'description' => 'A lightweight sphere used during balance meditation and Ba Gua circles.',
@@ -154,7 +136,6 @@ return [
     [
         'name' => 'Tremor Grounding Sandals',
         'price' => 2099.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/earth/tremorSandals.png',
         'description' => 'Weighted shoes designed to enhance stance practice and earth connection.',
@@ -162,7 +143,6 @@ return [
     [
         'name' => 'Stone Core Belt',
         'price' => 1599.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/earth/stoneBelt.png',
         'description' => 'A training belt that provides feedback on hip alignment during stances.',
@@ -170,7 +150,6 @@ return [
     [
         'name' => 'Seismic Focus Rods',
         'price' => 1199.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/earth/seismicRods.png',
         'description' => 'Handheld rods for training punching accuracy and resistance.',
@@ -178,7 +157,6 @@ return [
     [
         'name' => 'Pillar Stance Board',
         'price' => 1499.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/earth/pillarStance.png',
         'description' => 'A rigid board with stone patterns to guide foot spacing.',
@@ -186,7 +164,6 @@ return [
     [
         'name' => 'Ironroot Arm Weights',
         'price' => 1399.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/earth/ironroot.png',
         'description' => 'Forearm bands with internal sand-fill for slow, controlled bending drills.',
@@ -194,7 +171,6 @@ return [
     [
         'name' => 'Badgermole Rhythm Drum',
         'price' => 1299.00,
-        'stock' => 20,
         'stock_quantity' => 20,
         'image_url' => '/assets/img/products/earth/badgermole.png',
         'description' => 'A pulse drum used during seismic sensing and earth-rhythm meditation.',
