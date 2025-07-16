@@ -45,7 +45,21 @@ ob_start();
 <!-- Product List Output -->
 <section id="productList" class="product-list-section">
     <?php foreach ($products as $item): ?>
-        <div class="product-card show">
+        <?php
+            $image = $item['image_url'] ?? '';
+            if (stripos($image, 'fire') !== false) {
+                $nation = 'fire';
+            } elseif (stripos($image, 'water') !== false) {
+                $nation = 'water';
+            } elseif (stripos($image, 'earth') !== false) {
+                $nation = 'earth';
+            } elseif (stripos($image, 'air') !== false) {
+                $nation = 'air';
+            } else {
+                $nation = 'all';
+            }
+        ?>
+        <div class="product-card show" data-category="<?= $nation ?>">
             <?php if (!empty($item['image_url'])): ?>
                 <img src="<?= htmlspecialchars($item['image_url']) ?>" alt="<?= htmlspecialchars($item['name']) ?>"
                     style="width: 100%; max-height: 220px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
@@ -57,7 +71,7 @@ ob_start();
                 <input type="number" name="price" value="<?= $item['price'] ?>" required>
                 <textarea name="description" placeholder="Description"
                     style="width: 100%; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; resize: vertical; font-family: inherit;"><?= htmlspecialchars($item['description'] ?? '') ?></textarea>
-                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <div style="gap: 10px; margin-top: 10px;">
                     <button type="submit" class="add-to-cart-btn">Save</button>
                 </div>
             </form>
@@ -70,6 +84,23 @@ ob_start();
     <?php endforeach; ?>
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filter = document.getElementById('elementFilter');
+    const cards = document.querySelectorAll('.product-card');
+    filter.addEventListener('change', function() {
+        const selected = filter.value;
+        cards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (selected === 'all' || category === selected) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
 <?php
 $content = ob_get_clean();
 require_once LAYOUT_PATH . '/admin.layout.php';
