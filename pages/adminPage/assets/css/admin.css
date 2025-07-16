@@ -114,3 +114,42 @@ h2 {
     border-radius: 8px;
     margin-bottom: 10px;
 }
+
+.admin-description {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.admin-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.admin-btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.product-image {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.delete-btn {
+    background-color: #a82a2a;
+    text-align: center;
+}
+
+.delete-btn:hover {
+    background-color: #7c1f1f;
+}

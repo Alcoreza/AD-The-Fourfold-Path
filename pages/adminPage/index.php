@@ -1,11 +1,13 @@
 <?php
 require_once '../../bootstrap.php';
+require_once HANDLERS_PATH . 'admin/getAllProduct.handler.php';
 
 $pageTitle = 'Admin Dashboard';
 $pageName = 'admin';
 $navbarType = 'admin';
 $headerType = 'none';
 
+$products = getAllProducts();
 ob_start();
 ?>
 
@@ -22,31 +24,50 @@ ob_start();
     </select>
 </div>
 
-<!-- Add Product Form -->
 <section class="admin-card">
     <div class="admin-card-header">Add New Product</div>
     <div class="admin-card-body">
-        <form id="productForm" class="admin-form">
+        <form id="productForm" class="admin-form" method="POST" action="/handlers/admin/addProduct.handler.php">
             <input type="text" placeholder="Product Name" name="name" required>
-            <select name="element" required>
-                <option value="">Element</option>
-                <option value="fire">Fire</option>
-                <option value="water">Water</option>
-                <option value="earth">Earth</option>
-                <option value="air">Air</option>
-            </select>
             <input type="number" placeholder="Price (₱)" name="price" required>
-            <input type="url" placeholder="Image URL" name="image" required>
-            <button type="submit" class="admin-btn">Add Product</button>
+            <input type="url" placeholder="Image URL" name="image_url">
+            <input type="number" placeholder="Stock Quantity" name="quantity" required>
+            <textarea name="description" placeholder="Product Description" rows="2" class="admin-description"></textarea>
+
+            <div class="admin-btn-wrapper">
+                <button type="submit" class="admin-btn">Add Product</button>
+            </div>
         </form>
     </div>
 </section>
 
 <!-- Product List Output -->
 <section id="productList" class="product-list-section">
-    <!-- Dynamically loaded via JS -->
+    <?php foreach ($products as $item): ?>
+        <div class="product-card show">
+            <?php if (!empty($item['image_url'])): ?>
+                <img src="<?= htmlspecialchars($item['image_url']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="product-image">
+            <?php endif; ?>
+
+            <form method="POST" action="/handlers/admin/updateProduct.handler.php" class="admin-form">
+                <input type="hidden" name="item_id" value="<?= $item['item_id'] ?>">
+                <input type="text" name="name" value="<?= htmlspecialchars($item['name']) ?>" required>
+                <input type="number" name="price" value="<?= $item['price'] ?>" required>
+                <textarea name="description" placeholder="Description" class="admin-description"><?= htmlspecialchars($item['description'] ?? '') ?></textarea>
+
+                <div class="admin-btn-group">
+                    <button type="submit" class="add-to-cart-btn">Save</button>
+                    <a href="/handlers/admin/deleteProduct.handler.php?item_id=<?= $item['item_id'] ?>"
+                        onclick="return confirm('Are you sure you want to delete this item?')" class="add-to-cart-btn delete-btn">
+                        Delete
+                    </a>
+                </div>
+            </form>
+        </div>
+    <?php endforeach; ?>
 </section>
 
 <?php
 $content = ob_get_clean();
 require_once LAYOUT_PATH . '/admin.layout.php';
+?>
