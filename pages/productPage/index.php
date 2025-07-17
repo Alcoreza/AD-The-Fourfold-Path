@@ -4,6 +4,7 @@ require_once UTILS_PATH . '/envSetter.util.php';
 
 $pageTitle = 'Products';
 
+// Connect to DB
 $conn = pg_connect(sprintf(
     "host=%s port=%s dbname=%s user=%s password=%s",
     $pgConfig['host'],
@@ -13,8 +14,13 @@ $conn = pg_connect(sprintf(
     $pgConfig['pass']
 ));
 
+// Get nation from URL
+$selectedNation = $_GET['nation'] ?? 'all';
+
+// Query all items
 $result = pg_query($conn, "SELECT * FROM items WHERE isdeleted = false ORDER BY item_id ASC");
 
+// Group products by nation
 $productsByNation = [
     'fire' => ['title' => 'Fire Nation', 'items' => []],
     'water' => ['title' => 'Water Tribe', 'items' => []],
@@ -43,16 +49,24 @@ while ($row = pg_fetch_assoc($result)) {
 }
 pg_close($conn);
 
+// Filter products if a specific nation is selected
+if ($selectedNation !== 'all' && isset($productsByNation[$selectedNation])) {
+    $productsByNation = [$selectedNation => $productsByNation[$selectedNation]];
+}
+
+// For icon highlighting
+$active = fn($nation) => $selectedNation === $nation ? 'active' : '';
+
 ob_start();
 ?>
 
 <!-- Nation Filter Buttons -->
 <div class="category-labels">
-    <img src="/assets/img/fire.png" alt="Fire Nation" class="faction-icon" onclick="filterProducts('fire')">
-    <img src="/assets/img/water.png" alt="Water Tribe" class="faction-icon" onclick="filterProducts('water')">
-    <img src="/assets/img/air.png" alt="Air Nomads" class="faction-icon" onclick="filterProducts('air')">
-    <img src="/assets/img/earth.png" alt="Earth Kingdom" class="faction-icon" onclick="filterProducts('earth')">
-    <img src="/assets/img/allButton.png" alt="All Products" class="faction-icon" onclick="filterProducts('all')">
+    <img src="/assets/img/fire.png" alt="Fire Nation" class="faction-icon <?= $active('fire') ?>" onclick="filterProducts('fire')">
+    <img src="/assets/img/water.png" alt="Water Tribe" class="faction-icon <?= $active('water') ?>" onclick="filterProducts('water')">
+    <img src="/assets/img/air.png" alt="Air Nomads" class="faction-icon <?= $active('air') ?>" onclick="filterProducts('air')">
+    <img src="/assets/img/earth.png" alt="Earth Kingdom" class="faction-icon <?= $active('earth') ?>" onclick="filterProducts('earth')">
+    <img src="/assets/img/allButton.png" alt="All Products" class="faction-icon <?= $active('all') ?>" onclick="filterProducts('all')">
 </div>
 
 <!-- Product Sections -->
@@ -64,13 +78,16 @@ ob_start();
                 <?php foreach ($data['items'] as $item): ?>
                     <div class="product-card" data-element="<?= $nation ?>">
                         <img src="<?= htmlspecialchars($item['image_url'] ?? '/assets/img/fallback.png') ?>"
-                            alt="<?= htmlspecialchars($item['name']) ?>">
+                             alt="<?= htmlspecialchars($item['name']) ?>">
                         <div class="product-title"><?= htmlspecialchars($item['name']) ?></div>
                         <div class="product-desc"><?= htmlspecialchars($item['description'] ?? '') ?></div>
                         <div class="product-price">₱<?= number_format($item['price'], 2) ?></div>
-                        <button class="add-to-cart-btn" data-id="<?= $item['item_id'] ?>"
-                            data-title="<?= htmlspecialchars($item['name']) ?>" data-price="<?= number_format($item['price'], 2) ?>"
-                            data-image="<?= htmlspecialchars($item['image_url']) ?>" data-nation="<?= $nation ?>">
+                        <button class="add-to-cart-btn"
+                                data-id="<?= $item['item_id'] ?>"
+                                data-title="<?= htmlspecialchars($item['name']) ?>"
+                                data-price="<?= number_format($item['price'], 2) ?>"
+                                data-image="<?= htmlspecialchars($item['image_url']) ?>"
+                                data-nation="<?= $nation ?>">
                             <i class="fas fa-cart-plus"></i> Add to Cart
                         </button>
                     </div>
@@ -79,6 +96,13 @@ ob_start();
         </div>
     <?php endif; ?>
 <?php endforeach; ?>
+
+<!-- JS: Filter function -->
+<script>
+    function filterProducts(nation) {
+        window.location.href = `/pages/productPage/index.php?nation=${nation}`;
+    }
+</script>
 
 <?php
 $content = ob_get_clean();
